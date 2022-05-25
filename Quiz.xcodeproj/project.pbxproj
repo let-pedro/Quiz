@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,14 @@
 		F38A2F4E283DB16A00BEF36D /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38A2F4C283DB16A00BEF36D /* OnboardingViewController.xib */; };
 		F38A2F53283DD83E00BEF36D /* CelebracaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F51283DD83D00BEF36D /* CelebracaoViewController.swift */; };
 		F38A2F54283DD83E00BEF36D /* CelebracaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38A2F52283DD83D00BEF36D /* CelebracaoViewController.xib */; };
+		F38CE855283E5342009198F0 /* Jogador.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE854283E5342009198F0 /* Jogador.swift */; };
+		F38CE859283E5713009198F0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F38CE858283E5713009198F0 /* Realm */; };
+		F38CE85B283E5713009198F0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F38CE85A283E5713009198F0 /* RealmSwift */; };
+		F38CE85E283E5BD9009198F0 /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE85D283E5BD9009198F0 /* OnboardingService.swift */; };
+		F38CE862283E5FDD009198F0 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE861283E5FDD009198F0 /* Utilities.swift */; };
+		F38CE869283E71BC009198F0 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE868283E71BC009198F0 /* OnboardingViewModel.swift */; };
+		F38CE86D283EA9CB009198F0 /* OnboardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE86C283EA9CB009198F0 /* OnboardingProtocol.swift */; };
+		F38CE872283EAEF1009198F0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE871283EAEF1009198F0 /* HomeCoordinator.swift */; };
 		F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12B283C04C7004E4618 /* AppDelegate.swift */; };
 		F3BAD12E283C04C7004E4618 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12D283C04C7004E4618 /* SceneDelegate.swift */; };
 		F3BAD130283C04C7004E4618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12F283C04C7004E4618 /* ViewController.swift */; };
@@ -34,6 +42,12 @@
 		F38A2F4C283DB16A00BEF36D /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		F38A2F51283DD83D00BEF36D /* CelebracaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebracaoViewController.swift; sourceTree = "<group>"; };
 		F38A2F52283DD83D00BEF36D /* CelebracaoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelebracaoViewController.xib; sourceTree = "<group>"; };
+		F38CE854283E5342009198F0 /* Jogador.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogador.swift; sourceTree = "<group>"; };
+		F38CE85D283E5BD9009198F0 /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
+		F38CE861283E5FDD009198F0 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		F38CE868283E71BC009198F0 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		F38CE86C283EA9CB009198F0 /* OnboardingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProtocol.swift; sourceTree = "<group>"; };
+		F38CE871283EAEF1009198F0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F3BAD128283C04C7004E4618 /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BAD12B283C04C7004E4618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BAD12D283C04C7004E4618 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38CE85B283E5713009198F0 /* RealmSwift in Frameworks */,
+				F38CE859283E5713009198F0 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +118,54 @@
 			path = Celebracao;
 			sourceTree = "<group>";
 		};
+		F38CE851283E51E4009198F0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F38CE85D283E5BD9009198F0 /* OnboardingService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F38CE852283E5214009198F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F38CE854283E5342009198F0 /* Jogador.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F38CE853283E521C009198F0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F38CE868283E71BC009198F0 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F38CE860283E5F7B009198F0 /* Ultils */ = {
+			isa = PBXGroup;
+			children = (
+				F38CE861283E5FDD009198F0 /* Utilities.swift */,
+			);
+			path = Ultils;
+			sourceTree = "<group>";
+		};
+		F38CE86B283EA9AB009198F0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F38CE86C283EA9CB009198F0 /* OnboardingProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F38CE870283EAEE1009198F0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F38CE871283EAEF1009198F0 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		F3BAD11F283C04C7004E4618 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +188,7 @@
 				F38A2F3A283D07B600BEF36D /* Resources */,
 				F3BAD140283C04F7004E4618 /* Application */,
 				F3BAD141283C0537004E4618 /* CoordinatorMain */,
+				F38CE860283E5F7B009198F0 /* Ultils */,
 				F3BAD146283C0C4F004E4618 /* Scenes */,
 				F3BAD12F283C04C7004E4618 /* ViewController.swift */,
 				F3BAD136283C04CA004E4618 /* LaunchScreen.storyboard */,
@@ -165,6 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				F3BAD14F283C0CB1004E4618 /* Coordinator */,
+				F38CE86B283EA9AB009198F0 /* Protocol */,
+				F38CE851283E51E4009198F0 /* Networking */,
+				F38CE852283E5214009198F0 /* Model */,
+				F38CE853283E521C009198F0 /* ViewModel */,
 				F3BAD14E283C0C93004E4618 /* View */,
 			);
 			path = Onboarding;
@@ -190,6 +259,7 @@
 		F3BAD154283C146A004E4618 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F38CE870283EAEE1009198F0 /* Coordinator */,
 				F3BD9AC3283C3A1500546BCC /* Protocol */,
 				F3BAD155283C147F004E4618 /* View */,
 			);
@@ -247,6 +317,10 @@
 			dependencies = (
 			);
 			name = Quiz;
+			packageProductDependencies = (
+				F38CE858283E5713009198F0 /* Realm */,
+				F38CE85A283E5713009198F0 /* RealmSwift */,
+			);
 			productName = Quiz;
 			productReference = F3BAD128283C04C7004E4618 /* Quiz.app */;
 			productType = "com.apple.product-type.application";
@@ -274,6 +348,9 @@
 				Base,
 			);
 			mainGroup = F3BAD11F283C04C7004E4618;
+			packageReferences = (
+				F38CE857283E5713009198F0 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = F3BAD129283C04C7004E4618 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,11 +384,17 @@
 				F3BAD143283C0557004E4618 /* AppCoordinator.swift in Sources */,
 				F3BD9AC5283C3A2D00546BCC /* ProtocolViewCode.swift in Sources */,
 				F3BAD151283C0CCE004E4618 /* OnboardingCoordinator.swift in Sources */,
+				F38CE862283E5FDD009198F0 /* Utilities.swift in Sources */,
+				F38CE86D283EA9CB009198F0 /* OnboardingProtocol.swift in Sources */,
 				F3BAD130283C04C7004E4618 /* ViewController.swift in Sources */,
 				F3BD9ACD283C416700546BCC /* HomeViewController.swift in Sources */,
+				F38CE855283E5342009198F0 /* Jogador.swift in Sources */,
 				F38A2F53283DD83E00BEF36D /* CelebracaoViewController.swift in Sources */,
 				F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */,
+				F38CE869283E71BC009198F0 /* OnboardingViewModel.swift in Sources */,
+				F38CE85E283E5BD9009198F0 /* OnboardingService.swift in Sources */,
 				F3BAD12E283C04C7004E4618 /* SceneDelegate.swift in Sources */,
+				F38CE872283EAEF1009198F0 /* HomeCoordinator.swift in Sources */,
 				F38A2F46283D9B4100BEF36D /* AlternativaCollectionViewCell.swift in Sources */,
 				F38A2F41283D1C5A00BEF36D /* InfoCollectionViewCell.swift in Sources */,
 				F38A2F4D283DB16A00BEF36D /* OnboardingViewController.swift in Sources */,
@@ -507,6 +590,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F38CE857283E5713009198F0 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F38CE858283E5713009198F0 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F38CE857283E5713009198F0 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		F38CE85A283E5713009198F0 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F38CE857283E5713009198F0 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3BAD120283C04C7004E4618 /* Project object */;
 }

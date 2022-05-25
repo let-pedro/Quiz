@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="DadoJogadorView" destination="uiH-Yq-TUP" id="pbD-ak-EnW"/>
                 <outlet property="entrarButton" destination="qfv-hv-4a8" id="QJO-Ge-WRH"/>
+                <outlet property="nomeJogadoTextField" destination="KjR-6D-GYI" id="pyK-el-d5S"/>
+                <outlet property="personagemImage" destination="zTp-tk-Rx6" id="5Bs-EL-0fP"/>
                 <outlet property="personagemView" destination="caG-2p-5o8" id="Kj2-9F-bzd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -53,8 +55,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RC-eX-Lo5">
                             <rect key="frame" x="0.0" y="448" width="414" height="448"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar um Personagem e preencham o nome" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifU-K6-WWs">
-                                    <rect key="frame" x="24" y="39" width="366.5" height="20"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar um Personagem e preencham o nome " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifU-K6-WWs">
+                                    <rect key="frame" x="21.5" y="39" width="371" height="20"/>
                                     <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -65,7 +67,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="geK-9h-NyR">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="57"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zTp-tk-Rx6">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personagem_3" translatesAutoresizingMaskIntoConstraints="NO" id="zTp-tk-Rx6">
                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="57"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="yxV-b3-Pwu"/>
@@ -74,40 +76,55 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8rn-KP-ezb">
                                                     <rect key="frame" x="90" y="0.0" width="277" height="57"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAM-Zl-Gjv">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAM-Zl-Gjv">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="57"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="zxT-Mf-5bi"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="personagem_1"/>
+                                                            <connections>
+                                                                <action selector="SelecaoPersonagemButton:" destination="-1" eventType="touchUpInside" id="SdC-MM-Lge"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lV-ti-9lc">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lV-ti-9lc">
                                                             <rect key="frame" x="57" y="0.0" width="50" height="57"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="wXe-Mr-D5Z"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="personagem_2"/>
+                                                            <connections>
+                                                                <action selector="SelecaoPersonagemButton:" destination="-1" eventType="touchUpInside" id="xA4-rM-Rk3"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuH-XC-AYk">
+                                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EuH-XC-AYk">
                                                             <rect key="frame" x="113.5" y="0.0" width="50" height="57"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="cXA-vF-Mhl"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="personagem_3"/>
+                                                            <connections>
+                                                                <action selector="SelecaoPersonagemButton:" destination="-1" eventType="touchUpInside" id="vqT-B4-UVw"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-5J-qwK">
+                                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJf-5J-qwK">
                                                             <rect key="frame" x="170.5" y="0.0" width="50" height="57"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="Jc5-1l-ccy"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="personagem_4"/>
+                                                            <connections>
+                                                                <action selector="SelecaoPersonagemButton:" destination="-1" eventType="touchUpInside" id="BOa-P5-pyg"/>
+                                                            </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygC-rD-HDd">
+                                                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygC-rD-HDd">
                                                             <rect key="frame" x="227" y="0.0" width="50" height="57"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="0pN-xp-8Ot"/>
                                                             </constraints>
                                                             <state key="normal" title="Button" image="personagem_5"/>
+                                                            <connections>
+                                                                <action selector="SelecaoPersonagemButton:" destination="-1" eventType="touchUpInside" id="agP-zl-Yma"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -135,12 +152,11 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRc-9e-m3I">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjR-6D-GYI">
                                                     <rect key="frame" x="0.0" y="30" width="374" height="27"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -165,6 +181,9 @@
                                     <state key="normal" title="Entrar">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="EntrarButton:" destination="-1" eventType="touchUpInside" id="Ran-wt-5no"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
