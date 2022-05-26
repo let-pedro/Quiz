@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct  OnboardingViewModel {
+class  OnboardingViewModel {
     
     
     // MARK: - Variáveis
@@ -11,6 +11,7 @@ struct  OnboardingViewModel {
     var viewNagivationsDelegate: OnboardingViewModelCoordinatorDelegate?
     var service: OnboardingService
     var personagemDefault = "personagem_3"
+    weak var eJogador: Jogador? = nil
     
     
     
@@ -27,23 +28,45 @@ struct  OnboardingViewModel {
     
     func criarNovoJogador(img imgJogador: String, _ nomeJogador: String){
         let jogador = Jogador(imagePersonagem: imgJogador, nome: nomeJogador)
+        eJogadorExistente(nomeJogador)
         
-        service.criar(jogador) { result in
-            guard result != nil else {
-                viewAlertaDelegate?.FailureCriarJogador(result)
+        guard eJogador != nil  else {
+            service.criar(jogador) { result in
+                guard result != nil else {
+                    self.viewNagivationsDelegate?.OnboardingViewModelGoToHome(self, jogador: jogador)
+                    return
+                }
+                self.viewAlertaDelegate?.FailureCriarJogador(result)
+            }
+            return
+        }
+        self.viewAlertaDelegate?.FailureExisteJogador()
+    }
+    
+    
+    
+    func irParaHome(_ nomeJogador: String){
+        eJogadorExistente(nomeJogador)
+        
+        guard let jogador = eJogador else {
+            self.viewAlertaDelegate?.FailureNaoExisteJogador()
+            return
+            
+        }
+        self.viewNagivationsDelegate?.OnboardingViewModelGoToHome(self, jogador: jogador)
+    }
+    
+    
+    func eJogadorExistente(_ nomejogador: String){
+        service.ExisteJogador(nomejogador) { Result in
+            guard Result == nil else {
+                if let jogador = Result {
+                    self.eJogador = jogador
+                }
                 return
             }
-            viewNagivationsDelegate?.OnboardingViewModelGoToHome(self, jogador: jogador)
         }
     }
-    
-    
-    
-    
-    func eJogadorExistente(_ jogador: String) -> Bool{
-        return false
-    }
-    
     
     
     func selecaoPersonagem(_ tagPersonagem: Int) -> String{

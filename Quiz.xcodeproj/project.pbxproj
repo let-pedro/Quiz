@@ -10,6 +10,9 @@
 		F37FF4F4283EE58F009E14D0 /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37FF4F3283EE58F009E14D0 /* HomeProtocol.swift */; };
 		F37FF4F7283EE626009E14D0 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37FF4F6283EE626009E14D0 /* HomeService.swift */; };
 		F37FF4FE283F20FF009E14D0 /* DesafioCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37FF4FD283F20FF009E14D0 /* DesafioCoordinator.swift */; };
+		F37FF507283F232D009E14D0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37FF506283F232D009E14D0 /* Question.swift */; };
+		F37FF50C283F2423009E14D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F37FF50B283F2423009E14D0 /* Alamofire */; };
+		F37FF50F283F2446009E14D0 /* DesafioProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37FF50E283F2446009E14D0 /* DesafioProtocol.swift */; };
 		F38A2F41283D1C5A00BEF36D /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F40283D1C5A00BEF36D /* InfoCollectionViewCell.swift */; };
 		F38A2F46283D9B4100BEF36D /* AlternativaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F45283D9B4000BEF36D /* AlternativaCollectionViewCell.swift */; };
 		F38A2F4D283DB16A00BEF36D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F4B283DB16A00BEF36D /* OnboardingViewController.swift */; };
@@ -27,7 +30,6 @@
 		F38CE87A283ED1B2009198F0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE879283ED1B2009198F0 /* HomeViewModel.swift */; };
 		F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12B283C04C7004E4618 /* AppDelegate.swift */; };
 		F3BAD12E283C04C7004E4618 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12D283C04C7004E4618 /* SceneDelegate.swift */; };
-		F3BAD130283C04C7004E4618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12F283C04C7004E4618 /* ViewController.swift */; };
 		F3BAD135283C04CA004E4618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BAD134283C04CA004E4618 /* Assets.xcassets */; };
 		F3BAD138283C04CA004E4618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3BAD136283C04CA004E4618 /* LaunchScreen.storyboard */; };
 		F3BAD143283C0557004E4618 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD142283C0557004E4618 /* AppCoordinator.swift */; };
@@ -43,6 +45,8 @@
 		F37FF4F3283EE58F009E14D0 /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		F37FF4F6283EE626009E14D0 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		F37FF4FD283F20FF009E14D0 /* DesafioCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioCoordinator.swift; sourceTree = "<group>"; };
+		F37FF506283F232D009E14D0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		F37FF50E283F2446009E14D0 /* DesafioProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioProtocol.swift; sourceTree = "<group>"; };
 		F38A2F40283D1C5A00BEF36D /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		F38A2F45283D9B4000BEF36D /* AlternativaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativaCollectionViewCell.swift; sourceTree = "<group>"; };
 		F38A2F4B283DB16A00BEF36D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +63,6 @@
 		F3BAD128283C04C7004E4618 /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BAD12B283C04C7004E4618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BAD12D283C04C7004E4618 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F3BAD12F283C04C7004E4618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3BAD134283C04CA004E4618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3BAD137283C04CA004E4618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3BAD139283C04CA004E4618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37FF50C283F2423009E14D0 /* Alamofire in Frameworks */,
 				F38CE85B283E5713009198F0 /* RealmSwift in Frameworks */,
 				F38CE859283E5713009198F0 /* Realm in Frameworks */,
 			);
@@ -93,9 +97,40 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		F37FF502283F22CA009E14D0 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F37FF50E283F2446009E14D0 /* DesafioProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F37FF503283F22D4009E14D0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F37FF504283F22E0009E14D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F37FF505283F22ED009E14D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F37FF506283F232D009E14D0 /* Question.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F38A2F3A283D07B600BEF36D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F38CE860283E5F7B009198F0 /* Ultils */,
 				F38A2F3B283D07C500BEF36D /* Protocol */,
 			);
 			path = Resources;
@@ -217,13 +252,10 @@
 		F3BAD12A283C04C7004E4618 /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				F38A2F3A283D07B600BEF36D /* Resources */,
 				F3BAD140283C04F7004E4618 /* Application */,
 				F3BAD141283C0537004E4618 /* CoordinatorMain */,
-				F38CE860283E5F7B009198F0 /* Ultils */,
+				F38A2F3A283D07B600BEF36D /* Resources */,
 				F3BAD146283C0C4F004E4618 /* Scenes */,
-				F3BAD12F283C04C7004E4618 /* ViewController.swift */,
-				F3BAD136283C04CA004E4618 /* LaunchScreen.storyboard */,
 				F3BAD139283C04CA004E4618 /* Info.plist */,
 			);
 			path = Quiz;
@@ -250,6 +282,7 @@
 		F3BAD146283C0C4F004E4618 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F3BAD136283C04CA004E4618 /* LaunchScreen.storyboard */,
 				F3BAD147283C0C69004E4618 /* Onboarding */,
 				F3BAD154283C146A004E4618 /* Home */,
 				F3BAD156283C149F004E4618 /* Desafio */,
@@ -314,7 +347,10 @@
 			isa = PBXGroup;
 			children = (
 				F37FF4FC283F20D9009E14D0 /* Coordinator */,
-				F38A2F44283D9B0700BEF36D /* Cell */,
+				F37FF502283F22CA009E14D0 /* Protocol */,
+				F37FF505283F22ED009E14D0 /* Model */,
+				F37FF503283F22D4009E14D0 /* Networking */,
+				F37FF504283F22E0009E14D0 /* ViewModel */,
 				F3BAD157283C1519004E4618 /* View */,
 			);
 			path = Desafio;
@@ -323,6 +359,7 @@
 		F3BAD157283C1519004E4618 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F38A2F44283D9B0700BEF36D /* Cell */,
 				F3BAD158283C1530004E4618 /* DesafioViewController.swift */,
 				F3BAD159283C1530004E4618 /* DesafioViewController.xib */,
 			);
@@ -356,6 +393,7 @@
 			packageProductDependencies = (
 				F38CE858283E5713009198F0 /* Realm */,
 				F38CE85A283E5713009198F0 /* RealmSwift */,
+				F37FF50B283F2423009E14D0 /* Alamofire */,
 			);
 			productName = Quiz;
 			productReference = F3BAD128283C04C7004E4618 /* Quiz.app */;
@@ -386,6 +424,7 @@
 			mainGroup = F3BAD11F283C04C7004E4618;
 			packageReferences = (
 				F38CE857283E5713009198F0 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F37FF50A283F2423009E14D0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F3BAD129283C04C7004E4618 /* Products */;
 			projectDirPath = "";
@@ -426,15 +465,16 @@
 				F37FF4F4283EE58F009E14D0 /* HomeProtocol.swift in Sources */,
 				F38CE862283E5FDD009198F0 /* Utilities.swift in Sources */,
 				F38CE86D283EA9CB009198F0 /* OnboardingProtocol.swift in Sources */,
-				F3BAD130283C04C7004E4618 /* ViewController.swift in Sources */,
 				F3BD9ACD283C416700546BCC /* HomeViewController.swift in Sources */,
 				F38CE855283E5342009198F0 /* Jogador.swift in Sources */,
 				F38A2F53283DD83E00BEF36D /* CelebracaoViewController.swift in Sources */,
+				F37FF50F283F2446009E14D0 /* DesafioProtocol.swift in Sources */,
 				F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */,
 				F38CE869283E71BC009198F0 /* OnboardingViewModel.swift in Sources */,
 				F38CE85E283E5BD9009198F0 /* OnboardingService.swift in Sources */,
 				F3BAD12E283C04C7004E4618 /* SceneDelegate.swift in Sources */,
 				F38CE872283EAEF1009198F0 /* HomeCoordinator.swift in Sources */,
+				F37FF507283F232D009E14D0 /* Question.swift in Sources */,
 				F38A2F46283D9B4100BEF36D /* AlternativaCollectionViewCell.swift in Sources */,
 				F38A2F41283D1C5A00BEF36D /* InfoCollectionViewCell.swift in Sources */,
 				F38A2F4D283DB16A00BEF36D /* OnboardingViewController.swift in Sources */,
@@ -632,6 +672,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F37FF50A283F2423009E14D0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.4;
+			};
+		};
 		F38CE857283E5713009198F0 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -643,6 +691,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F37FF50B283F2423009E14D0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F37FF50A283F2423009E14D0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		F38CE858283E5713009198F0 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F38CE857283E5713009198F0 /* XCRemoteSwiftPackageReference "realm-swift" */;

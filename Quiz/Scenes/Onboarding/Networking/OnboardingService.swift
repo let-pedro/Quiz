@@ -2,8 +2,6 @@
 import Foundation
 import RealmSwift
 
-
-
 class OnboardingService: ObservableObject {
     private(set) var localRealm: Realm?
     
@@ -18,8 +16,10 @@ class OnboardingService: ObservableObject {
             let config = Realm.Configuration(schemaVersion: 1)
             
             Realm.Configuration.defaultConfiguration = config
+            print(Realm.Configuration.defaultConfiguration.fileURL)
             
             localRealm = try! Realm()
+
         } catch {
             print("Error opening Realm: \(error)")
         }
@@ -41,4 +41,19 @@ class OnboardingService: ObservableObject {
             print("Erro ao adicionar no relam \(error)")
         }
     }
+    
+    
+    func ExisteJogador(_ nomeJogador: String,completion: @escaping(Jogador?) -> Void){
+        guard let localRealm = localRealm  else { return }
+        print("entrei")
+        let result = localRealm.objects(Jogador.self).filter("nome = '\(nomeJogador)'").first
+        if let jogador = result {
+            guard jogador.nome ==  nomeJogador else {
+                return
+            }
+            completion(jogador)
+        } else {
+            completion(nil)
+        }
+    } 
 }

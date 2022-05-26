@@ -11,16 +11,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = HomeViewController()
-        window?.makeKeyAndVisible()
+//        window = UIWindow(windowScene: windowScene)
+//        window?.rootViewController = HomeViewController()
+//        window?.makeKeyAndVisible()
         
         
-//        let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//        appWindow.windowScene = windowScene
-//
-//        appCoordinator = AppCoordinator(window: appWindow)
-//        appCoordinator?.start()
+        let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        appWindow.windowScene = windowScene
+
+        appCoordinator = AppCoordinator(window: appWindow)
+        appCoordinator?.start()
         
     }
 

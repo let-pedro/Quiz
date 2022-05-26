@@ -9,13 +9,14 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var personagemView: UIView!
     @IBOutlet weak var DadoJogadorView: UIView!
     @IBOutlet weak var entrarButton: UIButton!
+    @IBOutlet weak var criarJogadroButton: UIButton!
     @IBOutlet weak var personagemImage: UIImageView?
     @IBOutlet weak var nomeJogadoTextField: UITextField?
     
     
     // MARK: - Variáveis
     
-    var viewModel: OnboardingViewModel! // modificar Depois 
+    var viewModel: OnboardingViewModel!
     var imgPersonagemSelecionado: String?
     
     
@@ -43,6 +44,7 @@ class OnboardingViewController: UIViewController {
         Shadow.shadowView(view: personagemView)
         Shadow.shadowView(view: DadoJogadorView)
         Shadow.shadowButton(button: entrarButton)
+        Shadow.shadowButton(button: criarJogadroButton)
         
         viewModel.viewAlertaDelegate = self
     }
@@ -60,35 +62,54 @@ class OnboardingViewController: UIViewController {
     
     
     @IBAction func EntrarButton(_ sender: UIButton) {
-        guard nomeJogadoTextField?.text != "", let nomeJogador = nomeJogadoTextField?.text else {
+        let nome = validacaoCampoNome()
+        guard nome != nil, let nomeJogador = nome else {
             self.present(Alerta.Alert(Title: "Preencher campo", messageAlert: "O campo nome precisa está preenchido"), animated: true)
             return
         }
-
-        guard viewModel.eJogadorExistente(nomeJogador) else {
-            criarJogador(nomeJogador)
+        viewModel.irParaHome(nomeJogador)
+    }
+    
+    
+    @IBAction func CriaJogadorButton(_ sender: Any) {
+        let nome = validacaoCampoNome()
+        guard nome != nil, let nomeJogador = nome  else {
+            self.present(Alerta.Alert(Title: "Preencher campo", messageAlert: "O campo nome precisa está preenchido"), animated: true)
             return
         }
+        novoJogador(nomeJogador)
     }
     
     
     
     // MARK: - Métodos
-    func criarJogador(_ nomeJogador: String){
+    func novoJogador(_ nomeJogador: String){
         guard let personagemImage = imgPersonagemSelecionado else { return }
         viewModel.criarNovoJogador(img: personagemImage, nomeJogador)
     }
     
     
-    
+    func validacaoCampoNome() -> String? {
+        guard nomeJogadoTextField?.text != "", let nomeJogador = nomeJogadoTextField?.text else {
+            self.present(Alerta.Alert(Title: "Preencher campo", messageAlert: "O campo nome precisa está preenchido"), animated: true)
+            return nil
+        }
+        return nomeJogador
+    }
 }
 
-extension OnboardingViewController: OnboardingViewModelAlertasDelegate {
+    // MARK: - Extension
+
+extension OnboardingViewController: OnboardingViewModelAlertasDelegate {    
     func FailureCriarJogador(_ error: Error?) {
-        self.present(Alerta.Alert(Title: "Error", messageAlert: "Ocorreu um problema ao cria novo jogador \(String(describing: error?.localizedDescription))"), animated: true)
+        self.present(Alerta.Alert(Title: "Error", messageAlert: "Ocorreu um problema ao cria um novo jogador \(String(describing: error?.localizedDescription))"), animated: true)
     }
     
-    func FailureExisteJogador(_ error: Error){
+    func FailureNaoExisteJogador(){
         self.present(Alerta.Alert(Title: "Error", messageAlert: "O jogador não existe criar um Jogador"), animated: true)
+    }
+    
+    func FailureExisteJogador(){
+        self.present(Alerta.Alert(Title: "Error", messageAlert: "Nome ja utilizado"), animated: true)
     }
 }

@@ -11,7 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingViewController" customModule="Quiz" customModuleProvider="target">
             <connections>
                 <outlet property="DadoJogadorView" destination="uiH-Yq-TUP" id="pbD-ak-EnW"/>
-                <outlet property="entrarButton" destination="qfv-hv-4a8" id="QJO-Ge-WRH"/>
+                <outlet property="criarJogadroButton" destination="qfv-hv-4a8" id="NIS-Qa-NX9"/>
+                <outlet property="entrarButton" destination="Me7-qF-jbo" id="Ht7-hz-K4w"/>
                 <outlet property="nomeJogadoTextField" destination="KjR-6D-GYI" id="pyK-el-d5S"/>
                 <outlet property="personagemImage" destination="zTp-tk-Rx6" id="5Bs-EL-0fP"/>
                 <outlet property="personagemView" destination="caG-2p-5o8" id="Kj2-9F-bzd"/>
@@ -171,34 +172,56 @@
                                         <constraint firstItem="fPD-vi-C3V" firstAttribute="top" secondItem="uiH-Yq-TUP" secondAttribute="top" id="vHg-lK-XTP"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfv-hv-4a8">
-                                    <rect key="frame" x="110" y="383" width="194" height="40"/>
-                                    <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-1Y-dHg">
+                                    <rect key="frame" x="20" y="383" width="374" height="40"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfv-hv-4a8">
+                                            <rect key="frame" x="0.0" y="0.0" width="172" height="40"/>
+                                            <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="1VN-QN-hdh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
+                                            <state key="normal" title="Criar Jogador">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="CriaJogadorButton:" destination="-1" eventType="touchUpInside" id="cQJ-5Z-jS7"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Me7-qF-jbo">
+                                            <rect key="frame" x="202" y="0.0" width="172" height="40"/>
+                                            <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="bo2-uh-5KE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
+                                            <state key="normal" title="Entrar">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="EntrarButton:" destination="-1" eventType="touchUpInside" id="fMv-vV-hPV"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="1VN-QN-hdh"/>
+                                        <constraint firstAttribute="height" constant="40" id="DqR-Fh-8xK"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
-                                    <state key="normal" title="Entrar">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="EntrarButton:" destination="-1" eventType="touchUpInside" id="Ran-wt-5no"/>
-                                    </connections>
-                                </button>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="qfv-hv-4a8" secondAttribute="trailing" constant="110" id="Blo-bO-qKx"/>
-                                <constraint firstAttribute="bottom" secondItem="qfv-hv-4a8" secondAttribute="bottom" constant="25" id="IYI-Zb-Pc2"/>
-                                <constraint firstItem="qfv-hv-4a8" firstAttribute="leading" secondItem="3RC-eX-Lo5" secondAttribute="leading" constant="110" id="IsG-Mi-pNa"/>
                                 <constraint firstItem="ifU-K6-WWs" firstAttribute="centerX" secondItem="3RC-eX-Lo5" secondAttribute="centerX" id="JdS-5Q-fTL"/>
                                 <constraint firstItem="uiH-Yq-TUP" firstAttribute="top" secondItem="caG-2p-5o8" secondAttribute="bottom" constant="22" id="L6J-uJ-NQB"/>
                                 <constraint firstItem="uiH-Yq-TUP" firstAttribute="leading" secondItem="3RC-eX-Lo5" secondAttribute="leading" constant="20" id="OFy-85-B3b"/>
                                 <constraint firstItem="ifU-K6-WWs" firstAttribute="top" secondItem="3RC-eX-Lo5" secondAttribute="top" constant="39" id="Scu-ld-uss"/>
                                 <constraint firstItem="caG-2p-5o8" firstAttribute="leading" secondItem="3RC-eX-Lo5" secondAttribute="leading" constant="20" id="WU5-ZD-wtI"/>
                                 <constraint firstItem="caG-2p-5o8" firstAttribute="top" secondItem="3RC-eX-Lo5" secondAttribute="top" constant="117" id="e99-hr-rGI"/>
+                                <constraint firstAttribute="trailing" secondItem="Fzc-1Y-dHg" secondAttribute="trailing" constant="20" symbolic="YES" id="esu-AQ-ayp"/>
                                 <constraint firstAttribute="trailing" secondItem="caG-2p-5o8" secondAttribute="trailing" constant="20" id="ez3-Wh-Iec"/>
+                                <constraint firstAttribute="bottom" secondItem="Fzc-1Y-dHg" secondAttribute="bottom" constant="25" id="rut-T3-7mj"/>
                                 <constraint firstAttribute="trailing" secondItem="uiH-Yq-TUP" secondAttribute="trailing" constant="20" id="sf0-wq-Li9"/>
+                                <constraint firstItem="Fzc-1Y-dHg" firstAttribute="leading" secondItem="3RC-eX-Lo5" secondAttribute="leading" constant="20" symbolic="YES" id="x9Y-SG-UAa"/>
                             </constraints>
                         </view>
                     </subviews>
