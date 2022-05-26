@@ -19,7 +19,7 @@ class OnboardingService: ObservableObject {
             
             Realm.Configuration.defaultConfiguration = config
             
-            localRealm = try? Realm()
+            localRealm = try! Realm()
         } catch {
             print("Error opening Realm: \(error)")
         }
@@ -31,7 +31,7 @@ class OnboardingService: ObservableObject {
         guard let localRealm = localRealm  else { return } // coloca alerta caso de erro
         
         do {
-            try? localRealm.write {
+            try! localRealm.write {
                 localRealm.add(jogador)
                 completion(nil)
             }

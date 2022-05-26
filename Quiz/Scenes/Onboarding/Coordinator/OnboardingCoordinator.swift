@@ -41,9 +41,9 @@ class OnboardingCoordinator: OnboardingViewModelCoordinatorDelegate {
     // MARK: - Navegação
     
     func OnboardingViewModelGoToHome(_ viewModel: OnboardingViewModel, jogador: Jogador) {
-        ScenesHomeCoordinator = HomeCoordinator()
+        ScenesHomeCoordinator = HomeCoordinator(window: window)
         guard let HomeCoordinator = self.ScenesHomeCoordinator else { return }
-        HomeCoordinator.start()
+        HomeCoordinator.start(idJogador: jogador.id)
     }  
 }
 

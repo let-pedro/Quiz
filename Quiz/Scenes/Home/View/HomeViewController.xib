@@ -73,6 +73,9 @@
                                     <state key="normal" title="Iniciar">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="IniciarQuizButton:" destination="-1" eventType="touchUpInside" id="4DR-Bm-WFV"/>
+                                    </connections>
                                 </button>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="W5s-M9-2TE">
                                     <rect key="frame" x="0.0" y="223" width="414" height="494"/>

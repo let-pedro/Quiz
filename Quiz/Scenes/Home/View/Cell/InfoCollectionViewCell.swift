@@ -10,19 +10,6 @@ struct cell {
 
 class InfoCollectionViewCell: UICollectionViewCell {
     
-    // UIColor(red: 0.89, green: 0.21, blue: 0.86, alpha: 1).cgColor)
-    //corCell: UIColor(red: 0.57, green: 0.26, blue: 1.00, alpha: 1).cgColor)
-    //UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor)
-    
-    
-    //UIColor(red: 0.57, green: 0.26, blue: 1.00, alpha: 1).cgColor
-    
-    let layoutCell = [cell(titulo: "Pontuação", image: "trophy", corCell: UIColor(red: 0.89, green: 0.21, blue: 0.86, alpha: 1).cgColor),
-                      cell(titulo: "Acertos", image: "sucesso", corCell: UIColor(red: 0.57, green: 0.26, blue: 1.00, alpha: 1).cgColor),
-                      cell(titulo: "Error", image: "erro_2", corCell: UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor),
-                      cell(titulo: "Acertos", image: "sucesso", corCell: UIColor(red: 0.02, green: 0.02, blue: 0.02, alpha: 1).cgColor),
-    ]
-    
     
     // MARK: - Elementos do Layout
 
@@ -59,14 +46,7 @@ class InfoCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        contentView.backgroundColor = UIColor(red: 0.89, green: 0.21, blue: 0.86, alpha: 1)
 
-
-        //iniciarButton.layer.shadowOffset = CGSize(width: 8, height: 8)
-        
-        
-        //configuraLayoutCell()
         setupView()
     }
     
@@ -76,13 +56,14 @@ class InfoCollectionViewCell: UICollectionViewCell {
     
     
     func configuraLayoutCell(_ index: Int){
-        contentView.layer.backgroundColor = layoutCell[index].corCell
-        personagemImage.image = UIImage(named: layoutCell[index].image)
-        tituloCardLabel.text = layoutCell[index].titulo
+        let cell = CustomCellCollectionView.layoutCell[index]
+        
+        tituloCardLabel.text = cell.titulo
+        personagemImage.image = UIImage(named: cell.image)
+        
+        contentView.layer.backgroundColor = cell.corCell
     }
-    
-    
-    
+ 
 }
 
 

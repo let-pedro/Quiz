@@ -1,13 +1,9 @@
-//
-//  HomeViewController.swift
-//  Quiz
-//
-//  Created by Development IOS on 23/05/22.
-//
 
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    // MARK: - Outlet
     
     @IBOutlet weak var ContainerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,16 +13,29 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var InfoCollectionView: UICollectionView!
     @IBOutlet weak var iniciarButton: UIButton!
     
+    // MARK: - Variáveis
+    
+    var viewModel: HomeViewModel! 
+
+    
+    
+    // MARK: - life cycle e configuração
     
     
     
+    init(viewModel: HomeViewModel) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         configuraElementosLayout()
         configuraCollectionView()
     }
@@ -34,39 +43,15 @@ class HomeViewController: UIViewController {
 
     
     func configuraElementosLayout(){
+        ContainerView.layer.backgroundColor = Shadow.corBackgroundPreto
+        InfoCollectionView.layer.backgroundColor = Shadow.corBackgroundPreto
         
-        // Header
-        
-        ContainerView.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        
-        headerView.layer.cornerRadius = 20
+        Shadow.shadowView(view: headerView)
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        headerView.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        headerView.layer.shadowColor = UIColor(red: 0.02, green: 0.02, blue: 0.02, alpha: 1).cgColor
-        //headerView.layer.shadowOffset = CGSize(width: 8, height: 8)
-        headerView.layer.shadowRadius = 20
-        headerView.layer.shadowOpacity = 1
+        Shadow.shadowButton(button: iniciarButton)
         
-        
-        InfoCollectionView.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        
-        
-        iniciarButton.layer.cornerRadius = 20
-        iniciarButton.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        iniciarButton.layer.shadowColor = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
-        //iniciarButton.layer.shadowOffset = CGSize(width: 8, height: 8)
-        iniciarButton.layer.shadowRadius = 20
-        iniciarButton.layer.shadowOpacity = 1
-        
+        viewModel.viewAlertaDelegate = self
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     func configuraCollectionView(){
         collectionView.register(
@@ -74,8 +59,29 @@ class HomeViewController: UIViewController {
             forCellWithReuseIdentifier: "InfoCollectionViewCell"
         )
     }
+    
+    
+    
+    // MARK: - IBActions
+    
+    
+    @IBAction func IniciarQuizButton(_ sender: Any) {
+        guard let JogadorAtual = viewModel.JogadorAtual else { return }
+        viewModel.IrParaDesafio(Jogador: JogadorAtual)
+    }
+    
+    
+    
+    
+    // MARK: - Métodos
+    
+    
+
 
 }
+
+
+    // MARK: - extension
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -84,8 +90,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCollectionViewCell", for: indexPath) as? InfoCollectionViewCell
-        print(indexPath.row)
         cell?.configuraLayoutCell(indexPath.row)
         return cell ?? UICollectionViewCell()
+    }
+}
+
+
+extension HomeViewController: HomeViewModelAlertasDelegate {
+    func FailurePegarJogador(_ error: Error?) {
+        self.present(Alerta.Alert(Title: "Error", messageAlert: "Ocorreu um Erro ao procura um Jogador"), animated: true)
     }
 }
