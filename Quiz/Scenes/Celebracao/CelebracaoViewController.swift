@@ -1,19 +1,46 @@
-//
-//  CelebracaoViewController.swift
-//  Quiz
-//
-//  Created by Development IOS on 25/05/22.
-//
 
 import UIKit
 
 class CelebracaoViewController: UIViewController {
-
+    
+    
+    // MARK: - Outlet
+    
+    @IBOutlet weak var ImageCelebracao: UIImageView!
+    @IBOutlet weak var FeedbackLabel: UIButton!
+    @IBOutlet weak var VoltarHomeButton: UIButton!
+    
+    // MARK: - Variáveis
+    
+    
+    
+    
+    
+    // MARK: - life cycle e configuração
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    func configuraLayout(){
+        Shadow.shadowButton(button: VoltarHomeButton)
+        VoltarHomeButton.layer.shadowColor = Shadow.corVerde.cgColor
+    }
+    
+    
+    // MARK: - IBActions
+    
+    @IBAction func irParaHomeButton(_ sender: UIButton) {
+        
+        
+    }
+    
+    
+    
+    // MARK: - Métodos
 
 
     /*
@@ -27,3 +54,6 @@ class CelebracaoViewController: UIViewController {
     */
 
 }
+
+
+    // MARK: - Extension

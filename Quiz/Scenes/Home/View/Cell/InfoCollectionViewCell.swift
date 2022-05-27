@@ -1,19 +1,12 @@
 
 import UIKit
 
-
-struct cell {
-    let titulo: String
-    let image: String
-    let corCell: CGColor
-}
-
 class InfoCollectionViewCell: UICollectionViewCell {
-    
+        
     
     // MARK: - Elementos do Layout
 
-    private lazy var nomeJogadorLabel: UILabel = {
+    private lazy var DaodJogadasLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.text = "10"
@@ -44,33 +37,52 @@ class InfoCollectionViewCell: UICollectionViewCell {
         return image
     }()
     
+    // MARK: - init e configuração
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         setupView()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
-    
-    func configuraLayoutCell(_ index: Int){
-        let cell = CustomCellCollectionView.layoutCell[index]
-        
-        tituloCardLabel.text = cell.titulo
-        personagemImage.image = UIImage(named: cell.image)
-        
-        contentView.layer.backgroundColor = cell.corCell
+    func configuraCellData(cell cellPosicao: Int, jogador: Jogador){
+        switch cellPosicao {
+        case 0:
+            //contentView.layer.backgroundColor = CustomCellCollectionView.corCellRosa
+            personagemImage.image = UIImage(named: "trophy")
+            tituloCardLabel.text = "Pontuação"
+            DaodJogadasLabel.text = String(jogador.pontuacao)
+        case 1:
+            //contentView.layer.backgroundColor = CustomCellCollectionView.corCellRoxo
+            personagemImage.image = UIImage(named: "sucesso")
+            tituloCardLabel.text = "Acertos"
+            DaodJogadasLabel.text = String(jogador.num_acerto)
+        case 2:
+            //contentView.layer.backgroundColor = CustomCellCollectionView.corCellVerde
+            personagemImage.image = UIImage(named: "erro_2")
+            tituloCardLabel.text = "Error"
+            DaodJogadasLabel.text = String(jogador.num_error)
+        case 3:
+            //contentView.layer.backgroundColor = CustomCellCollectionView.corCellPreto
+            personagemImage.image = UIImage(named: "Error")
+            tituloCardLabel.text = "......."
+            DaodJogadasLabel.text = String(jogador.pontuacao)
+        default:
+            return
+        }
     }
- 
 }
 
+    // MARK: - extension ViewCode
 
 extension InfoCollectionViewCell: ViewCode {
     
     func builHierarchy() {
-        addSubview(nomeJogadorLabel)
+        addSubview(DaodJogadasLabel)
         addSubview(personagemImage)
         addSubview(tituloCardLabel)
         
@@ -79,8 +91,8 @@ extension InfoCollectionViewCell: ViewCode {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            nomeJogadorLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nomeJogadorLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            DaodJogadasLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            DaodJogadasLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             personagemImage.heightAnchor.constraint(equalToConstant: 24),
             personagemImage.widthAnchor.constraint(equalToConstant: 24),
@@ -101,3 +113,4 @@ extension InfoCollectionViewCell: ViewCode {
         contentView.layer.shadowOpacity = 1
     }
 }
+

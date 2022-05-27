@@ -9,7 +9,8 @@ import Foundation
 
 
 protocol DesafioViewModelAlertasDelegate {
-    func FailureBuscarDesafio(_ error: Error?)
-    var RespostaDesafio: Bool { get }
-    var errorRespostaDesafio: Bool { get }
+    //func FailureBuscarDesafio(_ error: Error?)
+    func questaoViewController(questao: Question)
+    //var RespostaDesafio: Bool { get }
+    //var errorRespostaDesafio: Bool { get }
 }

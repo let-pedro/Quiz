@@ -19,7 +19,7 @@ class HomeService: ObservableObject {
             Realm.Configuration.defaultConfiguration = config
             
             localRealm = try! Realm()
-        } catch {
+        } catch  {
             print("Error opening Realm: \(error)")
         }
     }

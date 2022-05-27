@@ -28,6 +28,8 @@
 		F38CE86D283EA9CB009198F0 /* OnboardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE86C283EA9CB009198F0 /* OnboardingProtocol.swift */; };
 		F38CE872283EAEF1009198F0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE871283EAEF1009198F0 /* HomeCoordinator.swift */; };
 		F38CE87A283ED1B2009198F0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE879283ED1B2009198F0 /* HomeViewModel.swift */; };
+		F3ADEFA7284004020052156A /* DesafioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADEFA6284004020052156A /* DesafioService.swift */; };
+		F3ADEFAA284049D80052156A /* DesafioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADEFA9284049D80052156A /* DesafioViewModel.swift */; };
 		F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12B283C04C7004E4618 /* AppDelegate.swift */; };
 		F3BAD12E283C04C7004E4618 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12D283C04C7004E4618 /* SceneDelegate.swift */; };
 		F3BAD135283C04CA004E4618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BAD134283C04CA004E4618 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		F38CE86C283EA9CB009198F0 /* OnboardingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProtocol.swift; sourceTree = "<group>"; };
 		F38CE871283EAEF1009198F0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F38CE879283ED1B2009198F0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F3ADEFA6284004020052156A /* DesafioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioService.swift; sourceTree = "<group>"; };
+		F3ADEFA9284049D80052156A /* DesafioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioViewModel.swift; sourceTree = "<group>"; };
 		F3BAD128283C04C7004E4618 /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BAD12B283C04C7004E4618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BAD12D283C04C7004E4618 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		F37FF503283F22D4009E14D0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F3ADEFA6284004020052156A /* DesafioService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 		F37FF504283F22E0009E14D0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F3ADEFA9284049D80052156A /* DesafioViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -459,6 +465,8 @@
 				F37FF4FE283F20FF009E14D0 /* DesafioCoordinator.swift in Sources */,
 				F37FF4F7283EE626009E14D0 /* HomeService.swift in Sources */,
 				F38CE87A283ED1B2009198F0 /* HomeViewModel.swift in Sources */,
+				F3ADEFAA284049D80052156A /* DesafioViewModel.swift in Sources */,
+				F3ADEFA7284004020052156A /* DesafioService.swift in Sources */,
 				F3BAD143283C0557004E4618 /* AppCoordinator.swift in Sources */,
 				F3BD9AC5283C3A2D00546BCC /* ProtocolViewCode.swift in Sources */,
 				F3BAD151283C0CCE004E4618 /* OnboardingCoordinator.swift in Sources */,

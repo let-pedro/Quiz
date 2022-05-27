@@ -3,6 +3,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    
+    
     // MARK: - Outlet
     
     @IBOutlet weak var ContainerView: UIView!
@@ -15,17 +17,18 @@ class HomeViewController: UIViewController {
     
     // MARK: - Variáveis
     
-    var viewModel: HomeViewModel! 
+    var viewModel: HomeViewModel!
+    var jogadorAtual: Jogador?
 
     
     
     // MARK: - life cycle e configuração
     
     
-    
     init(viewModel: HomeViewModel) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
+        self.jogadorAtual = viewModel.jogadorAtual
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +41,7 @@ class HomeViewController: UIViewController {
 
         configuraElementosLayout()
         configuraCollectionView()
+        configuraHomeData()
     }
 
 
@@ -61,13 +65,20 @@ class HomeViewController: UIViewController {
     }
     
     
+    func configuraHomeData(){
+        guard let Jogador = jogadorAtual else { return }
+        nomeJogadoLabel.text = "olá \(Jogador.nome)"
+        personagemImage.image = UIImage(named: Jogador.imagePersonagem)
+    }
+    
+    
     
     // MARK: - IBActions
     
     
     @IBAction func IniciarQuizButton(_ sender: Any) {
-        guard let JogadorAtual = viewModel.JogadorAtual else { return }
-        viewModel.IrParaDesafio(Jogador: JogadorAtual)
+        guard let Jogador = jogadorAtual else { return }
+        viewModel.irParaDesafio(Jogador: Jogador)
     }
     
     
@@ -89,9 +100,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCollectionViewCell", for: indexPath) as? InfoCollectionViewCell
-        cell?.configuraLayoutCell(indexPath.row)
-        return cell ?? UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCollectionViewCell", for: indexPath) as? InfoCollectionViewCell,
+              let jogador = jogadorAtual else { fatalError("error to create ViagemTableViewCell") }
+        
+        cell.configuraCellData(cell: indexPath.row,jogador: jogador)
+        return cell
     }
 }
 

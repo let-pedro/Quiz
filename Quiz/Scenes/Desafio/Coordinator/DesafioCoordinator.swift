@@ -15,12 +15,8 @@ class DesafioCoordinator {
     // MARK: - Atributos self
     
     var window: UIWindow
-    //var viewModel: OnboardingViewModel?
-    //// MARK: - Atributos self
-    
-    //var window: UIWindow
-    //var viewModel: OnboardingViewModel?
-    //var controller: OnboardingViewController?var controller: OnboardingViewController?
+    var viewModel: DesafioViewModel?
+    var controller: DesafioViewController?
     
     
     // MARK: - init
@@ -31,8 +27,28 @@ class DesafioCoordinator {
     }
     
     
-    func start(Jogador: Jogador){
+    // MARK: - Métodos do Coordinator Desafio
         
+    func start(Jogador: Jogador){
+        print(Jogador)
+        viewModel = DesafioViewModel()
+        viewModel?.pegarQuestao()
+        //viewModel?.viewNagivationsDelegate = self
+        
+        guard let viewModel = viewModel else { return }
+        controller = DesafioViewController(viewModel: viewModel, jogador: Jogador)
+        window.rootViewController = controller
+    }
+    
+    
+    // MARK: - Navegação
+
+    func HomeViewModelGoToDesafio(_ viewModel: HomeViewModel, jogador: Jogador) {
+//        ScenesDesafioCoordinator = DesafioCoordinator(window: window)
+//        guard let desafioCoordinator = self.ScenesDesafioCoordinator else { return }
+//        desafioCoordinator.start(Jogador: jogador)
+        
+        print("Hello")
     }
     
 }

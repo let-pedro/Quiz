@@ -45,7 +45,6 @@ class OnboardingService: ObservableObject {
     
     func ExisteJogador(_ nomeJogador: String,completion: @escaping(Jogador?) -> Void){
         guard let localRealm = localRealm  else { return }
-        print("entrei")
         let result = localRealm.objects(Jogador.self).filter("nome = '\(nomeJogador)'").first
         if let jogador = result {
             guard jogador.nome ==  nomeJogador else {

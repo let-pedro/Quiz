@@ -8,7 +8,7 @@ struct Shadow {
     static let corShadowView = UIColor(red: 0.02, green: 0.02, blue: 0.02, alpha: 1).cgColor
     static let corShadowButton = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
     static let corBackgroundPreto = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-    
+    static let corVerde = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1)
     
     
     
@@ -25,6 +25,15 @@ struct Shadow {
         button.layer.backgroundColor = corBackgroundPreto
         button.layer.shadowColor = corShadowButton
         button.layer.shadowRadius = 20
+        button.layer.shadowOpacity = 1
+    }
+    
+    
+    static func shadowButtonAlternativa(button: UIButton) {
+        button.layer.cornerRadius = 10
+        button.layer.backgroundColor = corBackgroundPreto
+        button.layer.shadowColor = corShadowView
+        button.layer.shadowRadius = 10
         button.layer.shadowOpacity = 1
     }
 }
@@ -46,10 +55,4 @@ struct CustomCellCollectionView {
     static let corCellRoxo = UIColor(red: 0.57, green: 0.26, blue: 1.00, alpha: 1).cgColor
     static let corCellVerde = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
     static let corCellPreto = UIColor(red: 0.02, green: 0.02, blue: 0.02, alpha: 1).cgColor
-    
-    static let layoutCell = [cell(titulo: "Pontuação", image: "trophy", corCell: corCellRosa),
-                      cell(titulo: "Acertos", image: "sucesso", corCell: corCellRoxo),
-                      cell(titulo: "Error", image: "erro_2", corCell: corCellVerde),
-                      cell(titulo: "Acertos", image: "sucesso", corCell: corCellPreto),
-    ]
 }

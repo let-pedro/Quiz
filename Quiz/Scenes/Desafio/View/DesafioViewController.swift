@@ -1,76 +1,154 @@
-//
-//  DesafioViewController.swift
-//  Quiz
-//
-//  Created by Development IOS on 23/05/22.
-//
 
 import UIKit
 
 class DesafioViewController: UIViewController {
     
     
-    @IBOutlet weak var containerView: UIView!
+    // MARK: - Outlet
+    
+    
     @IBOutlet weak var barraDeProgresso: UIProgressView!
     @IBOutlet weak var contQuestaoLabel: UILabel!
     @IBOutlet weak var EnunciadoQuestaoLabel: UILabel!
-    @IBOutlet weak var AlternativasCollectionView: UICollectionView!
-    
-    
+    @IBOutlet var Views: [UIView]!
+    @IBOutlet var botoesAlternativas: [UIButton]!
     @IBOutlet weak var finalizarbutton: UIButton!
     @IBOutlet weak var proximoButton: UIButton!
     
+    
+    // MARK: - Variáveis
+    
+    
+    var viewModel: DesafioViewModel!
+    var Questao: Question?
+    var progresso: Float = 0.1
+    
+    
+    
+    // MARK: - life cycle e configuração
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
         configuraLayout()
+        viewModel.viewDelegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print("viewDidAppear")
+        print("aqui --- \(Questao)")
+        //escolherQuestao()
+        //apresentarrQuestao()
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("viewWillAppear")
+    }
+    
+    init(viewModel: DesafioViewModel, jogador: Jogador) {
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+        print("Init")
+        //self.viewModel.pegarQuestao()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     
     func configuraLayout(){
-        containerView.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        barraDeProgresso.tintColor = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1)
-        
-        AlternativasCollectionView.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        
-        finalizarbutton.layer.cornerRadius = 20
-        finalizarbutton.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        finalizarbutton.layer.shadowColor = UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 1).cgColor
-        finalizarbutton.layer.shadowRadius = 20
-        finalizarbutton.layer.shadowOpacity = 1
-        
-        proximoButton.layer.cornerRadius = 20
-        proximoButton.layer.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
-        proximoButton.layer.shadowColor = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
-        proximoButton.layer.shadowRadius = 20
-        proximoButton.layer.shadowOpacity = 1
-        
-        
-        
-        AlternativasCollectionView.register(
-            AlternativaCollectionViewCell.self,
-            forCellWithReuseIdentifier: "AlternativaCollectionViewCell"
-        )
-        
-        
-    }
+        barraDeProgresso.tintColor = Shadow.corVerde
+        Shadow.shadowButton(button: finalizarbutton)
+        Shadow.shadowButton(button: proximoButton)
 
-
-}
-
-
-extension DesafioViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        for view in Views {
+            view.layer.backgroundColor = Shadow.corBackgroundPreto
+        }
+        
+        for buttonStyle in botoesAlternativas {
+            Shadow.shadowButtonAlternativa(button: buttonStyle)
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlternativaCollectionViewCell", for: indexPath) as? AlternativaCollectionViewCell
-        return cell ?? UICollectionViewCell()
-    }  
+    // MARK: - IBActions
+    
+    @IBAction func botoesDeFluxosButton(_ sender: UIButton) {
+        
+        guard progresso <= 1 else {
+            print("ACABOU")
+            return
+        }
+        
+        if sender.tag == 1 {
+            viewModel.pegarQuestao()
+            progresso += 0.1
+        } else {
+            viewModel.pegarQuestao()
+            progresso += 0.1
+        }
+        
+    }
+    
+    
+    @IBAction func AlternativaAction(_ sender: UIButton) {
+        
+       
+        
+        switch sender.tag {
+        case 1:
+            desabilitarAlternativas(AlternativaSelecionada: sender.tag)
+        case 2:
+           desabilitarAlternativas(AlternativaSelecionada: sender.tag)
+        case 3:
+            desabilitarAlternativas(AlternativaSelecionada: sender.tag)
+        case 4:
+            desabilitarAlternativas(AlternativaSelecionada: sender.tag)
+            
+        default:
+            return
+        }
+    }
+    
+    
+    
+    // MARK: - Métodos
+    
+    
+    func desabilitarAlternativas(AlternativaSelecionada: Int){
+        for alternativa in botoesAlternativas {
+            if alternativa.tag != AlternativaSelecionada {
+                alternativa.isEnabled = false
+            }else {
+                alternativa.layer.shadowColor = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
+            }
+        }
+    }
+    
+    
+    func habilitarAlternativasButton(){
+        for alternativa in botoesAlternativas {
+            alternativa.isEnabled = true
+        }
+    }
+}
+
+    // MARK: - Extension
+
+extension DesafioViewController: DesafioViewModelAlertasDelegate{
+    func questaoViewController(questao: Question){
+        
+        habilitarAlternativasButton()
+        guard questao != nil else { return }
+
+        self.barraDeProgresso.progress = progresso
+        self.EnunciadoQuestaoLabel.text = questao.statement
+        
+        for alternativa in botoesAlternativas {
+            alternativa.setAttributedTitle(
+                NSAttributedString(string: questao.options[alternativa.tag]),
+                for: .normal)
+        }
+    }
 }

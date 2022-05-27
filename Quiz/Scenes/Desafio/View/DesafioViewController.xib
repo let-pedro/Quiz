@@ -10,14 +10,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DesafioViewController" customModule="Quiz" customModuleProvider="target">
             <connections>
-                <outlet property="AlternativasCollectionView" destination="JqI-Sp-cKn" id="ypX-Z6-kuD"/>
                 <outlet property="EnunciadoQuestaoLabel" destination="qg4-rw-fzU" id="BOd-SG-jAF"/>
                 <outlet property="barraDeProgresso" destination="bJO-Dj-Iob" id="C2d-Pw-Aha"/>
                 <outlet property="contQuestaoLabel" destination="26E-TI-SLS" id="JB9-Pc-G4L"/>
-                <outlet property="containerView" destination="N60-gX-Qmq" id="dJX-EC-EPX"/>
                 <outlet property="finalizarbutton" destination="p7x-Sm-982" id="Kt9-Cb-d1M"/>
                 <outlet property="proximoButton" destination="HNM-03-T7x" id="utY-Zp-9c5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="botoesAlternativas" destination="bKU-AI-Wmr" collectionClass="NSMutableArray" id="aws-0N-uSu"/>
+                <outletCollection property="botoesAlternativas" destination="tcN-6h-7mn" collectionClass="NSMutableArray" id="Jor-pz-I8n"/>
+                <outletCollection property="botoesAlternativas" destination="bGK-iD-RUm" collectionClass="NSMutableArray" id="3dS-Lj-1ve"/>
+                <outletCollection property="botoesAlternativas" destination="36j-c6-zoQ" collectionClass="NSMutableArray" id="SNs-WC-823"/>
+                <outletCollection property="Views" destination="BY5-dA-PDm" collectionClass="NSMutableArray" id="rTm-AE-bs6"/>
+                <outletCollection property="Views" destination="TCu-rG-Omz" collectionClass="NSMutableArray" id="gvY-7d-REq"/>
+                <outletCollection property="Views" destination="EuA-kW-389" collectionClass="NSMutableArray" id="UTj-fo-hQN"/>
+                <outletCollection property="Views" destination="N60-gX-Qmq" collectionClass="NSMutableArray" id="w1x-gI-Cek"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -31,7 +37,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N60-gX-Qmq" userLabel="ContainerView">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                             <subviews>
-                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bJO-Dj-Iob">
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bJO-Dj-Iob">
                                     <rect key="frame" x="10" y="66" width="394" height="4"/>
                                     <color key="tintColor" systemColor="systemBlueColor"/>
                                 </progressView>
@@ -42,29 +48,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual é o nome da empresa mais legal do mundo ? " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg4-rw-fzU">
-                                    <rect key="frame" x="10" y="127.5" width="394" height="49"/>
+                                    <rect key="frame" x="3" y="128" width="408" height="49"/>
                                     <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="21"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JqI-Sp-cKn">
-                                    <rect key="frame" x="0.0" y="254.5" width="414" height="415"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="415" id="T6e-If-5Y1"/>
-                                    </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cup-kh-gKW">
-                                        <size key="itemSize" width="335" height="72"/>
-                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </collectionViewFlowLayout>
-                                    <connections>
-                                        <outlet property="dataSource" destination="-1" id="pAk-oW-KkA"/>
-                                    </connections>
-                                </collectionView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="egp-G8-o7j">
-                                    <rect key="frame" x="0.0" y="684" width="414" height="217"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="egp-G8-o7j" userLabel="Botoes">
+                                    <rect key="frame" x="0.0" y="683" width="414" height="217"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuA-kW-389">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -96,13 +86,16 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCu-rG-Omz">
                                                     <rect key="frame" x="0.0" y="0.0" width="207" height="128"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7x-Sm-982">
+                                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7x-Sm-982">
                                                             <rect key="frame" x="15" y="36" width="177" height="56"/>
                                                             <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                                             <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
                                                             <state key="normal" title="Finalizar">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="botoesDeFluxosButton:" destination="-1" eventType="touchUpInside" id="7OR-qP-lpG"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.12" green="0.12" blue="0.12" alpha="1" colorSpace="calibratedRGB"/>
@@ -118,13 +111,16 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BY5-dA-PDm">
                                                     <rect key="frame" x="207" y="0.0" width="207" height="128"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-03-T7x">
+                                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-03-T7x">
                                                             <rect key="frame" x="15" y="36" width="177" height="56"/>
                                                             <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                                             <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
                                                             <state key="normal" title="Próximo">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="botoesDeFluxosButton:" destination="-1" eventType="touchUpInside" id="8h0-Z6-DK7"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.12" green="0.12" blue="0.12" alpha="1" colorSpace="calibratedRGB"/>
@@ -140,25 +136,121 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="217" id="W71-1m-Hq9"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="hGu-q9-YIS" userLabel="Alternativas">
+                                    <rect key="frame" x="20" y="255" width="374" height="383"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKU-AI-Wmr">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="ME7-jx-XLY"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Altenativa 1">
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="16" name="Kefa-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </state>
+                                            <connections>
+                                                <action selector="AlternativaAction:" destination="-1" eventType="touchUpInside" id="HQp-03-Mrb"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcN-6h-7mn">
+                                            <rect key="frame" x="0.0" y="111" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="27O-bs-35g"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Altenativa 2">
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="16" name="Kefa-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </state>
+                                            <connections>
+                                                <action selector="AlternativaAction:" destination="-1" eventType="touchUpInside" id="9Fd-z6-yMJ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGK-iD-RUm">
+                                            <rect key="frame" x="0.0" y="222" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="tGL-pg-cZj"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Altenativa 3">
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="16" name="Kefa-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </state>
+                                            <connections>
+                                                <action selector="AlternativaAction:" destination="-1" eventType="touchUpInside" id="XW2-cI-haD"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36j-c6-zoQ">
+                                            <rect key="frame" x="0.0" y="333" width="374" height="50"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="q4J-ie-I9c"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Altenativa 4">
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="16" name="Kefa-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </state>
+                                            <connections>
+                                                <action selector="AlternativaAction:" destination="-1" eventType="touchUpInside" id="wad-zE-CXZ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" red="0.12" green="0.12" blue="0.12" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="qg4-rw-fzU" firstAttribute="leading" secondItem="N60-gX-Qmq" secondAttribute="leading" constant="10" id="4bm-7w-DtB"/>
-                                <constraint firstItem="bJO-Dj-Iob" firstAttribute="leading" secondItem="N60-gX-Qmq" secondAttribute="leading" constant="10" id="8Gm-Xu-13y"/>
-                                <constraint firstItem="qg4-rw-fzU" firstAttribute="top" secondItem="26E-TI-SLS" secondAttribute="bottom" constant="34" id="F3w-Jq-tdh"/>
-                                <constraint firstItem="26E-TI-SLS" firstAttribute="centerX" secondItem="N60-gX-Qmq" secondAttribute="centerX" id="Hkd-Gh-qRj"/>
-                                <constraint firstAttribute="trailing" secondItem="bJO-Dj-Iob" secondAttribute="trailing" constant="10" id="Hky-At-jwD"/>
-                                <constraint firstAttribute="trailing" secondItem="qg4-rw-fzU" secondAttribute="trailing" constant="10" id="MLH-u8-E6b"/>
+                                <constraint firstItem="qg4-rw-fzU" firstAttribute="centerX" secondItem="N60-gX-Qmq" secondAttribute="centerX" id="7hz-iT-CwG"/>
+                                <constraint firstItem="egp-G8-o7j" firstAttribute="top" secondItem="hGu-q9-YIS" secondAttribute="bottom" constant="45" id="7if-cc-qH0"/>
+                                <constraint firstItem="26E-TI-SLS" firstAttribute="top" secondItem="bJO-Dj-Iob" secondAttribute="bottom" constant="7" id="DeL-8q-9Da"/>
+                                <constraint firstItem="bJO-Dj-Iob" firstAttribute="top" secondItem="N60-gX-Qmq" secondAttribute="top" constant="66" id="FyF-Ri-Jx9"/>
+                                <constraint firstAttribute="trailing" secondItem="qg4-rw-fzU" secondAttribute="trailing" constant="3" id="Jcx-rP-fb6"/>
+                                <constraint firstItem="qg4-rw-fzU" firstAttribute="leading" secondItem="N60-gX-Qmq" secondAttribute="leading" constant="3" id="M81-QY-RZ2"/>
                                 <constraint firstAttribute="trailing" secondItem="egp-G8-o7j" secondAttribute="trailing" id="OG0-wc-SoS"/>
-                                <constraint firstItem="egp-G8-o7j" firstAttribute="top" secondItem="JqI-Sp-cKn" secondAttribute="bottom" constant="14.5" id="SFe-Ec-uGF"/>
-                                <constraint firstAttribute="trailing" secondItem="JqI-Sp-cKn" secondAttribute="trailing" id="Vg9-yp-Z1q"/>
-                                <constraint firstItem="qg4-rw-fzU" firstAttribute="centerX" secondItem="N60-gX-Qmq" secondAttribute="centerX" id="ZX1-RM-gek"/>
-                                <constraint firstItem="26E-TI-SLS" firstAttribute="top" secondItem="bJO-Dj-Iob" secondAttribute="bottom" constant="7" id="mcj-pv-KcJ"/>
+                                <constraint firstItem="qg4-rw-fzU" firstAttribute="top" secondItem="26E-TI-SLS" secondAttribute="bottom" constant="34.5" id="PBl-L9-1Vs"/>
+                                <constraint firstItem="bJO-Dj-Iob" firstAttribute="leading" secondItem="N60-gX-Qmq" secondAttribute="leading" constant="10" id="ZPs-dz-pb3"/>
+                                <constraint firstItem="26E-TI-SLS" firstAttribute="centerX" secondItem="N60-gX-Qmq" secondAttribute="centerX" id="Zgd-YS-KTw"/>
+                                <constraint firstAttribute="trailing" secondItem="hGu-q9-YIS" secondAttribute="trailing" constant="20" id="cPO-EO-V5Y"/>
+                                <constraint firstAttribute="bottom" secondItem="egp-G8-o7j" secondAttribute="bottom" id="jfq-Fh-oii"/>
+                                <constraint firstItem="hGu-q9-YIS" firstAttribute="leading" secondItem="N60-gX-Qmq" secondAttribute="leading" constant="20" id="rGA-RU-qxW"/>
+                                <constraint firstAttribute="trailing" secondItem="bJO-Dj-Iob" secondAttribute="trailing" constant="10" id="s1r-Vb-r0d"/>
                                 <constraint firstItem="egp-G8-o7j" firstAttribute="leading" secondItem="N60-gX-Qmq" secondAttribute="leading" id="uC0-DE-urt"/>
-                                <constraint firstItem="bJO-Dj-Iob" firstAttribute="top" secondItem="N60-gX-Qmq" secondAttribute="top" constant="66" id="x63-Gb-D6q"/>
-                                <constraint firstItem="JqI-Sp-cKn" firstAttribute="top" secondItem="qg4-rw-fzU" secondAttribute="bottom" constant="78" id="xS8-QX-UXb"/>
-                                <constraint firstItem="JqI-Sp-cKn" firstAttribute="leading" secondItem="N60-gX-Qmq" secondAttribute="leading" id="zug-CX-Uc2"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -188,9 +280,6 @@
         <image name="check" width="120" height="120"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

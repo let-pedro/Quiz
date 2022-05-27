@@ -6,20 +6,15 @@ import RealmSwift
 class HomeCoordinator: HomeViewModelCoordinatorDelegate {
     
     
-    
-    
     // MARK: - Atributos self
-    
     
     var window: UIWindow
     var viewModel: HomeViewModel?
     var controller: HomeViewController?
     
     
-    
     // MARK: -  Atributos para coneção com outras Scenes
     
-    //var ScenesDesafio: DesafioViewController?
     var ScenesDesafioCoordinator: DesafioCoordinator?
         
     
@@ -31,14 +26,15 @@ class HomeCoordinator: HomeViewModelCoordinatorDelegate {
     }
     
     
-    // MARK: - Métodos do Coordinator Onboarding
+    // MARK: - Métodos do Coordinator Home
     
     func start(idJogador: ObjectId){
-        //viewModel = HomeViewModel()
+        viewModel = HomeViewModel(id: idJogador)
+        viewModel?.viewNagivationsDelegate = self
         
-        print("Hello")
-        
-        
+        guard let viewModel = viewModel else { return }
+        controller = HomeViewController(viewModel: viewModel)
+        window.rootViewController = controller  
     }
     
     // MARK: - Navegação
@@ -48,9 +44,6 @@ class HomeCoordinator: HomeViewModelCoordinatorDelegate {
         guard let desafioCoordinator = self.ScenesDesafioCoordinator else { return }
         desafioCoordinator.start(Jogador: jogador)
     }
-    
-    
-    
 }
 
 
