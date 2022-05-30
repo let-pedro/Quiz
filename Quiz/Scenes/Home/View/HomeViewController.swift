@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     // MARK: - Variáveis
     
     var viewModel: HomeViewModel!
-    var jogadorAtual: Jogador?
+    var jogadorAtual: Jogador!
 
     
     
@@ -28,7 +28,6 @@ class HomeViewController: UIViewController {
     init(viewModel: HomeViewModel) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
-        self.jogadorAtual = viewModel.jogadorAtual
     }
     
     required init?(coder: NSCoder) {
@@ -54,7 +53,7 @@ class HomeViewController: UIViewController {
         headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         Shadow.shadowButton(button: iniciarButton)
         
-        viewModel.viewAlertaDelegate = self
+        viewModel.viewModelDelegate = self
     }
     
     func configuraCollectionView(){
@@ -66,9 +65,8 @@ class HomeViewController: UIViewController {
     
     
     func configuraHomeData(){
-        guard let Jogador = jogadorAtual else { return }
-        nomeJogadoLabel.text = "olá \(Jogador.nome)"
-        personagemImage.image = UIImage(named: Jogador.imagePersonagem)
+        nomeJogadoLabel.text = "olá \(jogadorAtual.nome)"
+        personagemImage.image = UIImage(named: jogadorAtual.imagePersonagem)
     }
     
     
@@ -77,8 +75,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func IniciarQuizButton(_ sender: Any) {
-        guard let Jogador = jogadorAtual else { return }
-        viewModel.irParaDesafio(Jogador: Jogador)
+        viewModel.irParaDesafio()
     }
     
     
@@ -100,16 +97,18 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCollectionViewCell", for: indexPath) as? InfoCollectionViewCell,
-              let jogador = jogadorAtual else { fatalError("error to create ViagemTableViewCell") }
-        
-        cell.configuraCellData(cell: indexPath.row,jogador: jogador)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCollectionViewCell", for: indexPath) as? InfoCollectionViewCell else { fatalError("error to create ViagemTableViewCell") }
+        cell.configuraCellData(cell: indexPath.row,jogador: jogadorAtual)
         return cell
     }
 }
 
 
-extension HomeViewController: HomeViewModelAlertasDelegate {
+extension HomeViewController: HomeViewModelDelegate {
+    func SucessPegarJogador(_ jogador: Jogador) {
+        jogadorAtual = jogador
+    }
+    
     func FailurePegarJogador(_ error: Error?) {
         self.present(Alerta.Alert(Title: "Error", messageAlert: "Ocorreu um Erro ao procura um Jogador"), animated: true)
     }

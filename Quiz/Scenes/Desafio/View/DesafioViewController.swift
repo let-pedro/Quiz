@@ -14,6 +14,9 @@ class DesafioViewController: UIViewController {
     @IBOutlet var botoesAlternativas: [UIButton]!
     @IBOutlet weak var finalizarbutton: UIButton!
     @IBOutlet weak var proximoButton: UIButton!
+
+    
+    
     
     
     // MARK: - Variáveis
@@ -22,6 +25,11 @@ class DesafioViewController: UIViewController {
     var viewModel: DesafioViewModel!
     var Questao: Question?
     var progresso: Float = 0.1
+    var contQuestao: Int = 1
+    var pontuacao: Int = 0
+    var erros: Int = 0
+    var acertos: Int = 0
+    var AlternativaSelecionadaIndex: Int = 0
     
     
     
@@ -30,27 +38,11 @@ class DesafioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configuraLayout()
-        viewModel.viewDelegate = self
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        print("viewDidAppear")
-        print("aqui --- \(Questao)")
-        //escolherQuestao()
-        //apresentarrQuestao()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        print("viewWillAppear")
-    }
-    
-    init(viewModel: DesafioViewModel, jogador: Jogador) {
+
+    init(viewModel: DesafioViewModel) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
-        print("Init")
-        //self.viewModel.pegarQuestao()
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +53,7 @@ class DesafioViewController: UIViewController {
     func configuraLayout(){
         barraDeProgresso.tintColor = Shadow.corVerde
         Shadow.shadowButton(button: finalizarbutton)
+        finalizarbutton.layer.shadowColor = Shadow.corShadowButtonVermelho
         Shadow.shadowButton(button: proximoButton)
 
         for view in Views {
@@ -70,58 +63,64 @@ class DesafioViewController: UIViewController {
         for buttonStyle in botoesAlternativas {
             Shadow.shadowButtonAlternativa(button: buttonStyle)
         }
+        
+        viewModel.viewModelDelegate = self
+    }
+    
+    
+    func configuracoesDeRodadas(){
+        habilitarAlternativasButton()
+        estadoDoBotaoProximo(estado: false)
+        barraDeProgresso.progress = progresso
+        contQuestaoLabel.text = "\(contQuestao) de 10"
     }
     
     // MARK: - IBActions
     
     @IBAction func botoesDeFluxosButton(_ sender: UIButton) {
-        
-        guard progresso <= 1 else {
-            print("ACABOU")
+        guard contQuestao <= 10 else {
+            DadosJogadas()
+            viewModel.irParaCelebracao()
             return
         }
         
-        if sender.tag == 1 {
+        if sender.tag == 0 {
             viewModel.pegarQuestao()
             progresso += 0.1
+            contQuestao += 1
         } else {
-            viewModel.pegarQuestao()
-            progresso += 0.1
+            viewModel.irParaHome()
         }
         
     }
     
     
     @IBAction func AlternativaAction(_ sender: UIButton) {
+        desabilitarAlternativas(AlternativaSelecionada: sender.tag)
+        AlternativaSelecionadaIndex = sender.tag
         
-       
-        
-        switch sender.tag {
-        case 1:
-            desabilitarAlternativas(AlternativaSelecionada: sender.tag)
-        case 2:
-           desabilitarAlternativas(AlternativaSelecionada: sender.tag)
-        case 3:
-            desabilitarAlternativas(AlternativaSelecionada: sender.tag)
-        case 4:
-            desabilitarAlternativas(AlternativaSelecionada: sender.tag)
-            
-        default:
-            return
-        }
+        guard let questao = Questao else { return }
+        verificar(resposta: questao.options[sender.tag], idQuestao: questao.id)
     }
     
     
     
     // MARK: - Métodos
+        
     
+    func DadosJogadas(){
+        viewModel.DadosJogada(pontos: pontuacao, erros: erros, acertos: acertos)
+    }
+    
+    
+    func verificar(resposta: String, idQuestao: String){
+        viewModel.verificarResposta(altSelecionada: resposta, idQuestao: idQuestao)
+    }
     
     func desabilitarAlternativas(AlternativaSelecionada: Int){
         for alternativa in botoesAlternativas {
             if alternativa.tag != AlternativaSelecionada {
                 alternativa.isEnabled = false
-            }else {
-                alternativa.layer.shadowColor = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
             }
         }
     }
@@ -130,20 +129,50 @@ class DesafioViewController: UIViewController {
     func habilitarAlternativasButton(){
         for alternativa in botoesAlternativas {
             alternativa.isEnabled = true
+            alternativa.layer.shadowColor = Shadow.corShadowView
         }
+    }
+    
+
+    func estadoDoBotaoProximo(estado: Bool){
+        guard estado else {
+            proximoButton.isEnabled = false
+            proximoButton.layer.shadowColor = Shadow.corShadowView
+            return
+        }
+        proximoButton.isEnabled = true
+        proximoButton.layer.shadowColor = Shadow.corShadowButtonVerde
     }
 }
 
     // MARK: - Extension
 
-extension DesafioViewController: DesafioViewModelAlertasDelegate{
-    func questaoViewController(questao: Question){
+extension DesafioViewController: DesafioViewModelDelegate{
+    func Failure(_ error: Error?) {
+        Alerta.Alert(Title: "Erro", messageAlert: "Occoreu um erro tenta novamente \(String(describing: error?.localizedDescription))")
+    }
+    
+    func resultadoVerificacaoResposta(Resposta: RespostaRequest) {
         
-        habilitarAlternativasButton()
-        guard questao != nil else { return }
-
-        self.barraDeProgresso.progress = progresso
-        self.EnunciadoQuestaoLabel.text = questao.statement
+        switch Resposta.result {
+        case true:
+            pontuacao += 10
+            acertos += 1
+            botoesAlternativas[AlternativaSelecionadaIndex].layer.shadowColor = Shadow.corShadowButtonVerde
+            estadoDoBotaoProximo(estado: true)
+        case false:
+            erros += 1
+            botoesAlternativas[AlternativaSelecionadaIndex].layer.shadowColor = Shadow.corShadowButtonVermelho
+            estadoDoBotaoProximo(estado: true)
+        }
+    }
+    
+    
+    func apresentarQuestao(questao: Question){
+        configuracoesDeRodadas()
+        
+        Questao = questao
+        EnunciadoQuestaoLabel.text = questao.statement
         
         for alternativa in botoesAlternativas {
             alternativa.setAttributedTitle(

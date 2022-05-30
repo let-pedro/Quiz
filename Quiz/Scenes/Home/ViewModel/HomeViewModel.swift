@@ -8,16 +8,18 @@ class HomeViewModel {
     // MARK: - Variáveis
     
     
-    var viewAlertaDelegate: HomeViewModelAlertasDelegate?
+    var viewModelDelegate: HomeViewModelDelegate?
     var viewNagivationsDelegate: HomeViewModelCoordinatorDelegate?
-    var service: HomeService
-    var jogadorAtual: Jogador? = nil
+    private var service: HomeService
+    var jogadorManager: JogadorManager
+    
         
     
     // MARK: - init
     
     init(service: HomeService = .init(), id idJogador: ObjectId) {
         self.service = service
+        self.jogadorManager = JogadorManager()
         getUsuarioAtual(idJogador)
     }
     
@@ -30,15 +32,17 @@ class HomeViewModel {
         service.getJogador(idJogador) { result in
             switch result {
             case .failure(let error):
-                self.viewAlertaDelegate?.FailurePegarJogador(error)
+                self.viewModelDelegate?.FailurePegarJogador(error)
             case .success(let Jogador):
-                self.jogadorAtual = Jogador
+                self.viewModelDelegate?.SucessPegarJogador(Jogador)
+                self.jogadorManager.jogadorAtual(Jogador)
             }
         }
     }
-    
-    
-    func irParaDesafio(Jogador: Jogador){
-        viewNagivationsDelegate?.HomeViewModelGoToDesafio(self, jogador: Jogador)
+
+        
+    func irParaDesafio(){
+        viewNagivationsDelegate?.HomeViewModelGoToDesafio(self)
     }
 }
+

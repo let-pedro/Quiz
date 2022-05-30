@@ -4,7 +4,7 @@ import UIKit
 import RealmSwift
 
 class HomeCoordinator: HomeViewModelCoordinatorDelegate {
-    
+
     
     // MARK: - Atributos self
     
@@ -39,10 +39,10 @@ class HomeCoordinator: HomeViewModelCoordinatorDelegate {
     
     // MARK: - Navegação
     
-    func HomeViewModelGoToDesafio(_ viewModel: HomeViewModel, jogador: Jogador) {
+    func HomeViewModelGoToDesafio(_ viewModel: HomeViewModel) {
         ScenesDesafioCoordinator = DesafioCoordinator(window: window)
         guard let desafioCoordinator = self.ScenesDesafioCoordinator else { return }
-        desafioCoordinator.start(Jogador: jogador)
+        desafioCoordinator.start()
     }
 }
 

@@ -3,14 +3,14 @@
 import Foundation
 
 
-//protocol DesafioViewModelCoordinatorDelegate: AnyObject {
-//    func HomeViewModelGoToCelebracao(_ viewModel:  DesafioViewModel)
-//}
+protocol DesafioViewModelCoordinatorDelegate: AnyObject {
+    func DesafioViewModelGoToHome(_ viewModel: DesafioViewModel,jogador: Jogador)
+    func DesafioViewModelGoToClebracao(_ viewModel: DesafioViewModel)
+}
 
 
-protocol DesafioViewModelAlertasDelegate {
-    //func FailureBuscarDesafio(_ error: Error?)
-    func questaoViewController(questao: Question)
-    //var RespostaDesafio: Bool { get }
-    //var errorRespostaDesafio: Bool { get }
+protocol DesafioViewModelDelegate {
+    func Failure(_ error: Error?)
+    func resultadoVerificacaoResposta(Resposta: RespostaRequest)
+    func apresentarQuestao(questao: Question)
 }

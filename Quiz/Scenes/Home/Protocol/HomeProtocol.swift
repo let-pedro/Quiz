@@ -3,10 +3,11 @@ import Foundation
 
 
 protocol HomeViewModelCoordinatorDelegate: AnyObject {
-    func HomeViewModelGoToDesafio(_ viewModel: HomeViewModel, jogador: Jogador)
+    func HomeViewModelGoToDesafio(_ viewModel: HomeViewModel)
 }
 
-protocol HomeViewModelAlertasDelegate {
+protocol HomeViewModelDelegate {
     func FailurePegarJogador(_ error: Error?)
+    func SucessPegarJogador(_ jogador: Jogador)
 }
 

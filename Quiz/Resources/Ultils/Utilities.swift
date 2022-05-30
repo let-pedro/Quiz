@@ -6,7 +6,9 @@ struct Shadow {
     
     
     static let corShadowView = UIColor(red: 0.02, green: 0.02, blue: 0.02, alpha: 1).cgColor
-    static let corShadowButton = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
+    static let corShadowButtonVerde = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
+    static let corShadowButtonVermelho = UIColor(red: 1.00, green: 0.00, blue: 0.00, alpha: 1).cgColor
+    static let corShadowButtonBranco = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1).cgColor
     static let corBackgroundPreto = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1).cgColor
     static let corVerde = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1)
     
@@ -23,7 +25,7 @@ struct Shadow {
     static func shadowButton(button: UIButton) {
         button.layer.cornerRadius = 20
         button.layer.backgroundColor = corBackgroundPreto
-        button.layer.shadowColor = corShadowButton
+        button.layer.shadowColor = corShadowButtonVerde
         button.layer.shadowRadius = 20
         button.layer.shadowOpacity = 1
     }
@@ -56,3 +58,4 @@ struct CustomCellCollectionView {
     static let corCellVerde = UIColor(red: 0.00, green: 0.82, blue: 0.57, alpha: 1).cgColor
     static let corCellPreto = UIColor(red: 0.02, green: 0.02, blue: 0.02, alpha: 1).cgColor
 }
+

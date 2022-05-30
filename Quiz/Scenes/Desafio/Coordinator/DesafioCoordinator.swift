@@ -1,15 +1,9 @@
-//
-//  DesafioCoordinator.swift
-//  Quiz
-//
-//  Created by Development IOS on 25/05/22.
-//
 
 import Foundation
 import UIKit
 
 
-class DesafioCoordinator {
+class DesafioCoordinator: DesafioViewModelCoordinatorDelegate {
     
     
     // MARK: - Atributos self
@@ -17,6 +11,13 @@ class DesafioCoordinator {
     var window: UIWindow
     var viewModel: DesafioViewModel?
     var controller: DesafioViewController?
+    var jogadorManager: JogadorManager
+    
+    
+    // MARK: - Scene Navegação
+    
+    var ScenesHomeCoordinator: HomeCoordinator?
+    var ScenesCelebracaCoordinator: CelebracaoCoordinator?
     
     
     // MARK: - init
@@ -24,31 +25,35 @@ class DesafioCoordinator {
     
     required init(window: UIWindow) {
         self.window = window
+        self.jogadorManager = JogadorManager()
     }
     
     
     // MARK: - Métodos do Coordinator Desafio
         
-    func start(Jogador: Jogador){
-        print(Jogador)
-        viewModel = DesafioViewModel()
+    func start(){
+        viewModel = DesafioViewModel(manager: jogadorManager)
         viewModel?.pegarQuestao()
-        //viewModel?.viewNagivationsDelegate = self
+        viewModel?.viewNagivationsDelegate = self
         
         guard let viewModel = viewModel else { return }
-        controller = DesafioViewController(viewModel: viewModel, jogador: Jogador)
+        controller = DesafioViewController(viewModel: viewModel)
         window.rootViewController = controller
     }
     
     
     // MARK: - Navegação
 
-    func HomeViewModelGoToDesafio(_ viewModel: HomeViewModel, jogador: Jogador) {
-//        ScenesDesafioCoordinator = DesafioCoordinator(window: window)
-//        guard let desafioCoordinator = self.ScenesDesafioCoordinator else { return }
-//        desafioCoordinator.start(Jogador: jogador)
-        
-        print("Hello")
+    func DesafioViewModelGoToHome(_ viewModel: DesafioViewModel, jogador: Jogador) {
+        ScenesHomeCoordinator = HomeCoordinator(window: window)
+        guard let HomeCoordinator = self.ScenesHomeCoordinator else { return }
+        HomeCoordinator.start(idJogador: jogador.id)
     }
     
+    
+    func DesafioViewModelGoToClebracao(_ viewModel: DesafioViewModel){
+        ScenesCelebracaCoordinator = CelebracaoCoordinator(window: window)
+        guard let CelebracaoCoordinator = self.ScenesCelebracaCoordinator else { return }
+        CelebracaoCoordinator.start()
+    }
 }

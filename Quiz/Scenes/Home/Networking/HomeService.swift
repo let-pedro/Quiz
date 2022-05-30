@@ -27,7 +27,6 @@ class HomeService: ObservableObject {
     
     
     func getJogador(_ idJogador: ObjectId, completion: @escaping (Result<Jogador,Error>) -> Void) {
-        
         if let localRealm = localRealm {
             
             do {

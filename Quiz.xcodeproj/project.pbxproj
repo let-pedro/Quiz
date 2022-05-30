@@ -14,7 +14,6 @@
 		F37FF50C283F2423009E14D0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F37FF50B283F2423009E14D0 /* Alamofire */; };
 		F37FF50F283F2446009E14D0 /* DesafioProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37FF50E283F2446009E14D0 /* DesafioProtocol.swift */; };
 		F38A2F41283D1C5A00BEF36D /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F40283D1C5A00BEF36D /* InfoCollectionViewCell.swift */; };
-		F38A2F46283D9B4100BEF36D /* AlternativaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F45283D9B4000BEF36D /* AlternativaCollectionViewCell.swift */; };
 		F38A2F4D283DB16A00BEF36D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F4B283DB16A00BEF36D /* OnboardingViewController.swift */; };
 		F38A2F4E283DB16A00BEF36D /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38A2F4C283DB16A00BEF36D /* OnboardingViewController.xib */; };
 		F38A2F53283DD83E00BEF36D /* CelebracaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A2F51283DD83D00BEF36D /* CelebracaoViewController.swift */; };
@@ -28,6 +27,8 @@
 		F38CE86D283EA9CB009198F0 /* OnboardingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE86C283EA9CB009198F0 /* OnboardingProtocol.swift */; };
 		F38CE872283EAEF1009198F0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE871283EAEF1009198F0 /* HomeCoordinator.swift */; };
 		F38CE87A283ED1B2009198F0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE879283ED1B2009198F0 /* HomeViewModel.swift */; };
+		F39346162844690100EC0A1E /* JogadorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39346152844690100EC0A1E /* JogadorManager.swift */; };
+		F3A404B22844FA6100FB35B3 /* CelebracaoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A404B12844FA6100FB35B3 /* CelebracaoCoordinator.swift */; };
 		F3ADEFA7284004020052156A /* DesafioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADEFA6284004020052156A /* DesafioService.swift */; };
 		F3ADEFAA284049D80052156A /* DesafioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADEFA9284049D80052156A /* DesafioViewModel.swift */; };
 		F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12B283C04C7004E4618 /* AppDelegate.swift */; };
@@ -50,7 +51,6 @@
 		F37FF506283F232D009E14D0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F37FF50E283F2446009E14D0 /* DesafioProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioProtocol.swift; sourceTree = "<group>"; };
 		F38A2F40283D1C5A00BEF36D /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
-		F38A2F45283D9B4000BEF36D /* AlternativaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativaCollectionViewCell.swift; sourceTree = "<group>"; };
 		F38A2F4B283DB16A00BEF36D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		F38A2F4C283DB16A00BEF36D /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		F38A2F51283DD83D00BEF36D /* CelebracaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebracaoViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		F38CE86C283EA9CB009198F0 /* OnboardingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProtocol.swift; sourceTree = "<group>"; };
 		F38CE871283EAEF1009198F0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F38CE879283ED1B2009198F0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F39346152844690100EC0A1E /* JogadorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogadorManager.swift; sourceTree = "<group>"; };
+		F3A404B12844FA6100FB35B3 /* CelebracaoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebracaoCoordinator.swift; sourceTree = "<group>"; };
 		F3ADEFA6284004020052156A /* DesafioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioService.swift; sourceTree = "<group>"; };
 		F3ADEFA9284049D80052156A /* DesafioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioViewModel.swift; sourceTree = "<group>"; };
 		F3BAD128283C04C7004E4618 /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F35405C428444B8E00D9A1EF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F3A404B12844FA6100FB35B3 /* CelebracaoCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F35405C528444D1600D9A1EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F37FF506283F232D009E14D0 /* Question.swift */,
+				F38CE854283E5342009198F0 /* Jogador.swift */,
+				F39346152844690100EC0A1E /* JogadorManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F37FF4FC283F20D9009E14D0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,14 +145,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F37FF505283F22ED009E14D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F37FF506283F232D009E14D0 /* Question.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		F38A2F3A283D07B600BEF36D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,17 +170,10 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		F38A2F44283D9B0700BEF36D /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				F38A2F45283D9B4000BEF36D /* AlternativaCollectionViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		F38A2F50283DD7D700BEF36D /* Celebracao */ = {
 			isa = PBXGroup;
 			children = (
+				F35405C428444B8E00D9A1EF /* Coordinator */,
 				F38A2F51283DD83D00BEF36D /* CelebracaoViewController.swift */,
 				F38A2F52283DD83D00BEF36D /* CelebracaoViewController.xib */,
 			);
@@ -181,14 +186,6 @@
 				F38CE85D283E5BD9009198F0 /* OnboardingService.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		F38CE852283E5214009198F0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F38CE854283E5342009198F0 /* Jogador.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		F38CE853283E521C009198F0 /* ViewModel */ = {
@@ -260,6 +257,7 @@
 			children = (
 				F3BAD140283C04F7004E4618 /* Application */,
 				F3BAD141283C0537004E4618 /* CoordinatorMain */,
+				F35405C528444D1600D9A1EF /* Model */,
 				F38A2F3A283D07B600BEF36D /* Resources */,
 				F3BAD146283C0C4F004E4618 /* Scenes */,
 				F3BAD139283C04CA004E4618 /* Info.plist */,
@@ -303,7 +301,6 @@
 				F3BAD14F283C0CB1004E4618 /* Coordinator */,
 				F38CE86B283EA9AB009198F0 /* Protocol */,
 				F38CE851283E51E4009198F0 /* Networking */,
-				F38CE852283E5214009198F0 /* Model */,
 				F38CE853283E521C009198F0 /* ViewModel */,
 				F3BAD14E283C0C93004E4618 /* View */,
 			);
@@ -354,7 +351,6 @@
 			children = (
 				F37FF4FC283F20D9009E14D0 /* Coordinator */,
 				F37FF502283F22CA009E14D0 /* Protocol */,
-				F37FF505283F22ED009E14D0 /* Model */,
 				F37FF503283F22D4009E14D0 /* Networking */,
 				F37FF504283F22E0009E14D0 /* ViewModel */,
 				F3BAD157283C1519004E4618 /* View */,
@@ -365,7 +361,6 @@
 		F3BAD157283C1519004E4618 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F38A2F44283D9B0700BEF36D /* Cell */,
 				F3BAD158283C1530004E4618 /* DesafioViewController.swift */,
 				F3BAD159283C1530004E4618 /* DesafioViewController.xib */,
 			);
@@ -473,9 +468,11 @@
 				F37FF4F4283EE58F009E14D0 /* HomeProtocol.swift in Sources */,
 				F38CE862283E5FDD009198F0 /* Utilities.swift in Sources */,
 				F38CE86D283EA9CB009198F0 /* OnboardingProtocol.swift in Sources */,
+				F39346162844690100EC0A1E /* JogadorManager.swift in Sources */,
 				F3BD9ACD283C416700546BCC /* HomeViewController.swift in Sources */,
 				F38CE855283E5342009198F0 /* Jogador.swift in Sources */,
 				F38A2F53283DD83E00BEF36D /* CelebracaoViewController.swift in Sources */,
+				F3A404B22844FA6100FB35B3 /* CelebracaoCoordinator.swift in Sources */,
 				F37FF50F283F2446009E14D0 /* DesafioProtocol.swift in Sources */,
 				F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */,
 				F38CE869283E71BC009198F0 /* OnboardingViewModel.swift in Sources */,
@@ -483,7 +480,6 @@
 				F3BAD12E283C04C7004E4618 /* SceneDelegate.swift in Sources */,
 				F38CE872283EAEF1009198F0 /* HomeCoordinator.swift in Sources */,
 				F37FF507283F232D009E14D0 /* Question.swift in Sources */,
-				F38A2F46283D9B4100BEF36D /* AlternativaCollectionViewCell.swift in Sources */,
 				F38A2F41283D1C5A00BEF36D /* InfoCollectionViewCell.swift in Sources */,
 				F38A2F4D283DB16A00BEF36D /* OnboardingViewController.swift in Sources */,
 				F3BAD15A283C1530004E4618 /* DesafioViewController.swift in Sources */,

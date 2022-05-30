@@ -7,7 +7,7 @@ class  OnboardingViewModel {
     // MARK: - Variáveis
     
     
-    var viewAlertaDelegate: OnboardingViewModelAlertasDelegate?
+    var viewModelDelegate: OnboardingViewModelDelegate?
     var viewNagivationsDelegate: OnboardingViewModelCoordinatorDelegate?
     var service: OnboardingService
     var personagemDefault = "personagem_3"

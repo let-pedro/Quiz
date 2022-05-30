@@ -7,7 +7,7 @@ protocol OnboardingViewModelCoordinatorDelegate: AnyObject {
 }
 
 
-protocol OnboardingViewModelAlertasDelegate {
+protocol OnboardingViewModelDelegate {
     func FailureCriarJogador(_ error: Error?)
     func FailureNaoExisteJogador()
     func FailureExisteJogador()

@@ -11,8 +11,8 @@ class Jogador: Object {
     @Persisted var pontuacao: Int
     @Persisted var num_error: Int
     @Persisted var num_acerto: Int
-
-
+    
+    
     convenience init(imagePersonagem: String, nome: String, pontuacao: Int = 0, num_error: Int = 0, num_acerto: Int = 0 ){
         self.init()
         self.imagePersonagem = imagePersonagem
@@ -20,5 +20,15 @@ class Jogador: Object {
         self.pontuacao = pontuacao
         self.num_error = num_error
         self.num_acerto = num_acerto
+    }
+    
+    
+    func updateDadosJogada(pontuacao: Int, QtErros num_error: Int, QtAcertos num_acerto: Int){
+        let realm = try! Realm()
+        try! realm.write {
+            self.pontuacao = pontuacao
+            self.num_error = num_error
+            self.num_acerto = num_acerto
+        }
     }
 }
