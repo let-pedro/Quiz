@@ -97,11 +97,11 @@ extension InfoCollectionViewCell: ViewCode {
             personagemImage.heightAnchor.constraint(equalToConstant: 24),
             personagemImage.widthAnchor.constraint(equalToConstant: 24),
             personagemImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            personagemImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            //personagemImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
             tituloCardLabel.leadingAnchor.constraint(equalTo: personagemImage.leadingAnchor,constant: 35 ),
             tituloCardLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -20 ),
-            tituloCardLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            //tituloCardLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
         ])
     }
     

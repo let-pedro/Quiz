@@ -52,6 +52,7 @@ class DesafioViewModel {
     
     
     func irParaCelebracao(){
+        print(jogadorManager.pegarJogadorAtual())
         viewNagivationsDelegate?.DesafioViewModelGoToClebracao(self)
     }
     
@@ -64,6 +65,6 @@ class DesafioViewModel {
     
     func DadosJogada(pontos: Int, erros: Int, acertos: Int){
         guard let jogador =  jogadorManager.pegarJogadorAtual()  else { return }
-        jogador.updateDadosJogada(pontuacao: pontos, QtErros: erros, QtAcertos: erros)
+        jogador.updateDadosJogada(pontuacao: pontos, QtErros: erros, QtAcertos: acertos)
     }
 }

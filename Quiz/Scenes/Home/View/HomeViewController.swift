@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
 
         configuraElementosLayout()
         configuraCollectionView()
+        apresentarDadosJogador()
     }
 
 
@@ -53,6 +54,12 @@ class HomeViewController: UIViewController {
         Shadow.shadowButton(button: iniciarButton)
         
         viewModel.viewModelDelegate = self
+        
+        
+        guard let jogador = JogadorManager.jogadorAtual else { return }
+        jogadorAtual = jogador
+        
+        
     }
     
     func configuraCollectionView(){
@@ -61,7 +68,6 @@ class HomeViewController: UIViewController {
             forCellWithReuseIdentifier: "InfoCollectionViewCell"
         )
     }
-    
     
     
     
@@ -78,6 +84,10 @@ class HomeViewController: UIViewController {
     // MARK: - Métodos
     
     
+    func apresentarDadosJogador(){
+        nomeJogadoLabel.text = "olá \(jogadorAtual.nome)"
+        personagemImage.image = UIImage(named: jogadorAtual.imagePersonagem)
+    }
 
 
 }
@@ -93,23 +103,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCollectionViewCell", for: indexPath) as? InfoCollectionViewCell else { fatalError("error to create ViagemTableViewCell") }
 
-        //cell.configuraCellData(cell: indexPath.row,jogador: jogadorAtual)
+        cell.configuraCellData(cell: indexPath.row,jogador: jogadorAtual)
         return cell
     }
 }
 
 
 extension HomeViewController: HomeViewModelDelegate {
-    func SucessPegarJogador(_ jogador: Jogador) {
-        jogadorAtual = jogador
-        
-        print("Dentro View normal --\(jogador)")
-        print("Dentro View --\(jogadorAtual)")
-
-        nomeJogadoLabel.text = "olá \(jogador.nome)"
-        personagemImage.image = UIImage(named: jogador.imagePersonagem)
-    }
-    
     func FailurePegarJogador(_ error: Error?) {
         self.present(Alerta.Alert(Title: "Error", messageAlert: "Ocorreu um Erro ao procura um Jogador"), animated: true)
     }

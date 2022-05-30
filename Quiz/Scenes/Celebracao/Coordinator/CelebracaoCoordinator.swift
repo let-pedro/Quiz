@@ -4,23 +4,29 @@ import UIKit
 
 class CelebracaoCoordinator: CelebracaoViewModelCoordinatorDelegate {
 
+    // MARK: - Atributos self
+    
     
     var window: UIWindow
     var viewModel: CelebracaoViewModel?
     var controller: CelebracaoViewController?
     var jogadorManager: JogadorManager
     
-    
+    // MARK: - Scene Navegação
     
     var ScenesHomeCoordinator: HomeCoordinator?
     var ScenesCelebracaCoordinator: DesafioCoordinator?
     
+    
+    // MARK: - init
     
     required init(window: UIWindow) {
         self.window = window
         self.jogadorManager = JogadorManager()
     }
     
+    
+    // MARK: - Métodos do Coordinator Desafio
     
     func start(){
         viewModel = CelebracaoViewModel(manager: jogadorManager)
@@ -30,6 +36,8 @@ class CelebracaoCoordinator: CelebracaoViewModelCoordinatorDelegate {
         controller = CelebracaoViewController(viewModel: viewModel)
         window.rootViewController = controller
     }
+    
+    // MARK: - Navegação
     
     
     func CelebracaoViewModelGoToHome(_ viewModel: CelebracaoViewModel, jogador: Jogador) {

@@ -38,6 +38,8 @@ class DesafioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configuraLayout()
+        
+        print("acertos \(acertos)")
     }
 
     init(viewModel: DesafioViewModel) {
@@ -78,7 +80,7 @@ class DesafioViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func botoesDeFluxosButton(_ sender: UIButton) {
-        guard contQuestao <= 10 else {
+        guard contQuestao < 10 else {
             DadosJogadas()
             viewModel.irParaCelebracao()
             return
@@ -153,14 +155,15 @@ extension DesafioViewController: DesafioViewModelDelegate{
     }
     
     func resultadoVerificacaoResposta(Resposta: RespostaRequest) {
-        
         switch Resposta.result {
         case true:
+            print("Acertou")
             pontuacao += 10
             acertos += 1
             botoesAlternativas[AlternativaSelecionadaIndex].layer.shadowColor = Shadow.corShadowButtonVerde
             estadoDoBotaoProximo(estado: true)
         case false:
+            print("Errou")
             erros += 1
             botoesAlternativas[AlternativaSelecionadaIndex].layer.shadowColor = Shadow.corShadowButtonVermelho
             estadoDoBotaoProximo(estado: true)

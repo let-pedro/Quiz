@@ -8,6 +8,5 @@ protocol HomeViewModelCoordinatorDelegate: AnyObject {
 
 protocol HomeViewModelDelegate {
     func FailurePegarJogador(_ error: Error?)
-    func SucessPegarJogador(_ jogador: Jogador)
 }
 

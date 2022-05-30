@@ -24,6 +24,8 @@ class CelebracaoViewController: UIViewController {
         super.viewDidLoad()
 
         configuraLayout()
+        //viewModel.viewModelDelegate = self
+        resultadoDesafio()
     }
     
     
@@ -44,6 +46,21 @@ class CelebracaoViewController: UIViewController {
     }
     
     
+    func resultadoDesafio(){
+        let jogadorAtual = JogadorManager.jogadorAtual
+        
+        guard let jogador =  jogadorAtual else { return }
+        
+        if jogador.pontuacao >= 70 {
+            ImageCelebracao.image = UIImage(named: "trophy")
+            FeedbackLabel.text = " Parabéns você completou todas as pergutas sua pontuação é \(jogador.pontuacao)"
+        } else {
+            ImageCelebracao.image = UIImage(named: "cancel")
+            FeedbackLabel.text = " Ooh pontuação foi \(jogador.pontuacao), você precisa obter no minimo 70 pontos"
+        }
+    }
+    
+    
     
     // MARK: - IBActions
    
@@ -54,28 +71,20 @@ class CelebracaoViewController: UIViewController {
     
     
     
-    
-    // MARK: - Métodos
-
-
-
-    
-    
 
 }
 
 
     // MARK: - Extension
 
-extension CelebracaoViewController: CelebracaoViewModelDelegate{
-    
-    func resultadoDesafio(pontuacao: Int){
-        if pontuacao >= 7 {
-            ImageCelebracao.image = UIImage(named: "trophy")
-            FeedbackLabel.text = " Parabéns você completou todas as pergutas sua pontuação é \(pontuacao)"
-        } else {
-            ImageCelebracao.image = UIImage(named: "cancel")
-            FeedbackLabel.text = " Ooh pontuação foi \(pontuacao), você precisa obter no minimo 70 pontos \(pontuacao)"
-        }
-    }
-}
+//extension CelebracaoViewController: CelebracaoViewModelDelegate {
+//    func resultadoDesafio(pontuacao: Int){
+//        if pontuacao >= 7 {
+//            ImageCelebracao.image = UIImage(named: "trophy")
+//            FeedbackLabel.text = " Parabéns você completou todas as pergutas sua pontuação é \(pontuacao)"
+//        } else {
+//            ImageCelebracao.image = UIImage(named: "cancel")
+//            FeedbackLabel.text = " Ooh pontuação foi \(pontuacao), você precisa obter no minimo 70 pontos \(pontuacao)"
+//        }
+//    }
+//}

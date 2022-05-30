@@ -35,7 +35,6 @@ class HomeViewModel {
                 self.viewModelDelegate?.FailurePegarJogador(error)
             case .success(let Jogador):
                 self.jogadorManager.jogadorAtual(Jogador)
-                self.viewModelDelegate?.SucessPegarJogador(Jogador)
             }
         }
     }
