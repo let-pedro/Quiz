@@ -40,7 +40,6 @@ class HomeViewController: UIViewController {
 
         configuraElementosLayout()
         configuraCollectionView()
-        configuraHomeData()
     }
 
 
@@ -63,11 +62,6 @@ class HomeViewController: UIViewController {
         )
     }
     
-    
-    func configuraHomeData(){
-        nomeJogadoLabel.text = "olá \(jogadorAtual.nome)"
-        personagemImage.image = UIImage(named: jogadorAtual.imagePersonagem)
-    }
     
     
     
@@ -98,7 +92,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoCollectionViewCell", for: indexPath) as? InfoCollectionViewCell else { fatalError("error to create ViagemTableViewCell") }
-        cell.configuraCellData(cell: indexPath.row,jogador: jogadorAtual)
+
+        //cell.configuraCellData(cell: indexPath.row,jogador: jogadorAtual)
         return cell
     }
 }
@@ -107,6 +102,12 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 extension HomeViewController: HomeViewModelDelegate {
     func SucessPegarJogador(_ jogador: Jogador) {
         jogadorAtual = jogador
+        
+        print("Dentro View normal --\(jogador)")
+        print("Dentro View --\(jogadorAtual)")
+
+        nomeJogadoLabel.text = "olá \(jogador.nome)"
+        personagemImage.image = UIImage(named: jogador.imagePersonagem)
     }
     
     func FailurePegarJogador(_ error: Error?) {

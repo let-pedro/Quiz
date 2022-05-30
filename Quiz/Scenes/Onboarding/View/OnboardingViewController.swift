@@ -46,7 +46,7 @@ class OnboardingViewController: UIViewController {
         Shadow.shadowButton(button: entrarButton)
         Shadow.shadowButton(button: criarJogadroButton)
         
-        viewModel.viewAlertaDelegate = self
+        viewModel.viewModelDelegate = self
     }
     
     
@@ -100,7 +100,7 @@ class OnboardingViewController: UIViewController {
 
     // MARK: - Extension
 
-extension OnboardingViewController: OnboardingViewModelAlertasDelegate {    
+extension OnboardingViewController: OnboardingViewModelDelegate {    
     func FailureCriarJogador(_ error: Error?) {
         self.present(Alerta.Alert(Title: "Error", messageAlert: "Ocorreu um problema ao cria um novo jogador \(String(describing: error?.localizedDescription))"), animated: true)
     }

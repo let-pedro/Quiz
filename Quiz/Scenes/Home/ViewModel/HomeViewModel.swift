@@ -28,14 +28,14 @@ class HomeViewModel {
     // MARK: - Métodos
     
     
-    private func getUsuarioAtual(_ idJogador: ObjectId ){
+    func getUsuarioAtual(_ idJogador: ObjectId ){
         service.getJogador(idJogador) { result in
             switch result {
             case .failure(let error):
                 self.viewModelDelegate?.FailurePegarJogador(error)
             case .success(let Jogador):
-                self.viewModelDelegate?.SucessPegarJogador(Jogador)
                 self.jogadorManager.jogadorAtual(Jogador)
+                self.viewModelDelegate?.SucessPegarJogador(Jogador)
             }
         }
     }

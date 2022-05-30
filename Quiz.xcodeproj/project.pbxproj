@@ -29,6 +29,8 @@
 		F38CE87A283ED1B2009198F0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CE879283ED1B2009198F0 /* HomeViewModel.swift */; };
 		F39346162844690100EC0A1E /* JogadorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39346152844690100EC0A1E /* JogadorManager.swift */; };
 		F3A404B22844FA6100FB35B3 /* CelebracaoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A404B12844FA6100FB35B3 /* CelebracaoCoordinator.swift */; };
+		F3A404BA2845045E00FB35B3 /* CelebracaoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A404B92845045E00FB35B3 /* CelebracaoProtocol.swift */; };
+		F3A404BE2845051E00FB35B3 /* CelebracaoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A404BD2845051E00FB35B3 /* CelebracaoViewModel.swift */; };
 		F3ADEFA7284004020052156A /* DesafioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADEFA6284004020052156A /* DesafioService.swift */; };
 		F3ADEFAA284049D80052156A /* DesafioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADEFA9284049D80052156A /* DesafioViewModel.swift */; };
 		F3BAD12C283C04C7004E4618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BAD12B283C04C7004E4618 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 		F38CE879283ED1B2009198F0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F39346152844690100EC0A1E /* JogadorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JogadorManager.swift; sourceTree = "<group>"; };
 		F3A404B12844FA6100FB35B3 /* CelebracaoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebracaoCoordinator.swift; sourceTree = "<group>"; };
+		F3A404B92845045E00FB35B3 /* CelebracaoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebracaoProtocol.swift; sourceTree = "<group>"; };
+		F3A404BD2845051E00FB35B3 /* CelebracaoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebracaoViewModel.swift; sourceTree = "<group>"; };
 		F3ADEFA6284004020052156A /* DesafioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioService.swift; sourceTree = "<group>"; };
 		F3ADEFA9284049D80052156A /* DesafioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioViewModel.swift; sourceTree = "<group>"; };
 		F3BAD128283C04C7004E4618 /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,8 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				F35405C428444B8E00D9A1EF /* Coordinator */,
-				F38A2F51283DD83D00BEF36D /* CelebracaoViewController.swift */,
-				F38A2F52283DD83D00BEF36D /* CelebracaoViewController.xib */,
+				F3A404B52845040D00FB35B3 /* Protocol */,
+				F3A404B72845042A00FB35B3 /* ViewModel */,
+				F3A404B82845043900FB35B3 /* View */,
 			);
 			path = Celebracao;
 			sourceTree = "<group>";
@@ -234,6 +239,31 @@
 				F38CE879283ED1B2009198F0 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3A404B52845040D00FB35B3 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F3A404B92845045E00FB35B3 /* CelebracaoProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		F3A404B72845042A00FB35B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F3A404BD2845051E00FB35B3 /* CelebracaoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F3A404B82845043900FB35B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F38A2F51283DD83D00BEF36D /* CelebracaoViewController.swift */,
+				F38A2F52283DD83D00BEF36D /* CelebracaoViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F3BAD11F283C04C7004E4618 = {
@@ -462,6 +492,7 @@
 				F38CE87A283ED1B2009198F0 /* HomeViewModel.swift in Sources */,
 				F3ADEFAA284049D80052156A /* DesafioViewModel.swift in Sources */,
 				F3ADEFA7284004020052156A /* DesafioService.swift in Sources */,
+				F3A404BE2845051E00FB35B3 /* CelebracaoViewModel.swift in Sources */,
 				F3BAD143283C0557004E4618 /* AppCoordinator.swift in Sources */,
 				F3BD9AC5283C3A2D00546BCC /* ProtocolViewCode.swift in Sources */,
 				F3BAD151283C0CCE004E4618 /* OnboardingCoordinator.swift in Sources */,
@@ -478,6 +509,7 @@
 				F38CE869283E71BC009198F0 /* OnboardingViewModel.swift in Sources */,
 				F38CE85E283E5BD9009198F0 /* OnboardingService.swift in Sources */,
 				F3BAD12E283C04C7004E4618 /* SceneDelegate.swift in Sources */,
+				F3A404BA2845045E00FB35B3 /* CelebracaoProtocol.swift in Sources */,
 				F38CE872283EAEF1009198F0 /* HomeCoordinator.swift in Sources */,
 				F37FF507283F232D009E14D0 /* Question.swift in Sources */,
 				F38A2F41283D1C5A00BEF36D /* InfoCollectionViewCell.swift in Sources */,

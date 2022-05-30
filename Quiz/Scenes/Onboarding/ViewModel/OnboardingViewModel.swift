@@ -36,11 +36,11 @@ class  OnboardingViewModel {
                     self.viewNagivationsDelegate?.OnboardingViewModelGoToHome(self, jogador: jogador)
                     return
                 }
-                self.viewAlertaDelegate?.FailureCriarJogador(result)
+                self.viewModelDelegate?.FailureCriarJogador(result)
             }
             return
         }
-        self.viewAlertaDelegate?.FailureExisteJogador()
+        self.viewModelDelegate?.FailureExisteJogador()
     }
     
     
@@ -49,7 +49,7 @@ class  OnboardingViewModel {
         eJogadorExistente(nomeJogador)
         
         guard let jogador = eJogador else {
-            self.viewAlertaDelegate?.FailureNaoExisteJogador()
+            self.viewModelDelegate?.FailureNaoExisteJogador()
             return
             
         }
