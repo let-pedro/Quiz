@@ -13,6 +13,6 @@
 </div>
  
 
-
+# ⚠️ Aviso
 
 obs: Quando iniciar o Quiz a um demora ao buscar as Questões na API, nessa Versão ao iniciar o quiz pela primeira vez precisar espera um pouco até as Questões aparecer 
