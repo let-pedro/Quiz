@@ -37,10 +37,10 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IBs-y4-2tc" userLabel="Botoes">
-                    <rect key="frame" x="0.0" y="626" width="414" height="84"/>
+                    <rect key="frame" x="0.0" y="726" width="414" height="126"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKm-Y7-0Pt">
-                            <rect key="frame" x="0.0" y="0.0" width="207" height="84"/>
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="126"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixf-1H-2MQ">
                                     <rect key="frame" x="20" y="30" width="167" height="66"/>
@@ -67,7 +67,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ui8-3f-JjT">
-                            <rect key="frame" x="207" y="0.0" width="207" height="84"/>
+                            <rect key="frame" x="207" y="0.0" width="207" height="126"/>
                             <subviews>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtL-xo-bZu">
                                     <rect key="frame" x="20" y="30" width="167" height="66"/>
@@ -103,9 +103,8 @@
                 <constraint firstItem="yIj-hb-UB7" firstAttribute="top" secondItem="YOf-wU-X4x" secondAttribute="bottom" constant="66" id="44t-3N-bgw"/>
                 <constraint firstItem="YOf-wU-X4x" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="147" id="4UO-BM-WTR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YOf-wU-X4x" secondAttribute="trailing" constant="60" id="6bn-PV-l4q"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IBs-y4-2tc" secondAttribute="bottom" constant="152" id="Jj5-Xa-SuV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="IBs-y4-2tc" secondAttribute="bottom" constant="10" id="Jj5-Xa-SuV"/>
                 <constraint firstItem="yIj-hb-UB7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="UgO-fY-O8F"/>
-                <constraint firstItem="IBs-y4-2tc" firstAttribute="top" secondItem="yIj-hb-UB7" secondAttribute="bottom" constant="80" id="eZw-9H-0oi"/>
                 <constraint firstItem="YOf-wU-X4x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="gf3-VY-bD2"/>
                 <constraint firstItem="IBs-y4-2tc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gzp-jx-RMf"/>
                 <constraint firstItem="yIj-hb-UB7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="vyV-1h-CqX"/>
