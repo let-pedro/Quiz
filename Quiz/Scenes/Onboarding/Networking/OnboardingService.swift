@@ -15,9 +15,7 @@ class OnboardingService: ObservableObject {
         do {
             let config = Realm.Configuration(schemaVersion: 1)
             
-            Realm.Configuration.defaultConfiguration = config
-            print(Realm.Configuration.defaultConfiguration.fileURL)
-            
+            Realm.Configuration.defaultConfiguration = config            
             localRealm = try! Realm()
 
         } catch {

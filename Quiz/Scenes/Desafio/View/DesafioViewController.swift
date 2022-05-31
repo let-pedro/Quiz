@@ -6,20 +6,17 @@ class DesafioViewController: UIViewController {
     
     // MARK: - Outlet
     
-    
+    @IBOutlet var ViewMain: UIView!
     @IBOutlet weak var barraDeProgresso: UIProgressView!
     @IBOutlet weak var contQuestaoLabel: UILabel!
     @IBOutlet weak var EnunciadoQuestaoLabel: UILabel!
-    @IBOutlet var Views: [UIView]!
     @IBOutlet var botoesAlternativas: [UIButton]!
     @IBOutlet weak var finalizarbutton: UIButton!
     @IBOutlet weak var proximoButton: UIButton!
-
-    
-    
     
     
     // MARK: - Variáveis
+
     
     
     var viewModel: DesafioViewModel!
@@ -32,15 +29,15 @@ class DesafioViewController: UIViewController {
     var AlternativaSelecionadaIndex: Int = 0
     
     
-    
     // MARK: - life cycle e configuração
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         configuraLayout()
-        
-        print("acertos \(acertos)")
     }
+
 
     init(viewModel: DesafioViewModel) {
         super.init(nibName: nil, bundle: nil)
@@ -57,10 +54,8 @@ class DesafioViewController: UIViewController {
         Shadow.shadowButton(button: finalizarbutton)
         finalizarbutton.layer.shadowColor = Shadow.corShadowButtonVermelho
         Shadow.shadowButton(button: proximoButton)
-
-        for view in Views {
-            view.layer.backgroundColor = Shadow.corBackgroundPreto
-        }
+        
+        ViewMain.layer.backgroundColor = Shadow.corBackgroundPreto
         
         for buttonStyle in botoesAlternativas {
             Shadow.shadowButtonAlternativa(button: buttonStyle)
@@ -77,7 +72,9 @@ class DesafioViewController: UIViewController {
         contQuestaoLabel.text = "\(contQuestao) de 10"
     }
     
+    
     // MARK: - IBActions
+    
     
     @IBAction func botoesDeFluxosButton(_ sender: UIButton) {
         guard contQuestao < 10 else {
@@ -93,7 +90,6 @@ class DesafioViewController: UIViewController {
         } else {
             viewModel.irParaHome()
         }
-        
     }
     
     
@@ -104,6 +100,8 @@ class DesafioViewController: UIViewController {
         guard let questao = Questao else { return }
         verificar(resposta: questao.options[sender.tag], idQuestao: questao.id)
     }
+    
+    
     
     
     
@@ -147,13 +145,13 @@ class DesafioViewController: UIViewController {
     }
 }
 
-    // MARK: - Extension
+// MARK: - Extension
 
 extension DesafioViewController: DesafioViewModelDelegate{
     func Failure(_ error: Error?) {
         Alerta.Alert(Title: "Erro", messageAlert: "Occoreu um erro tenta novamente \(String(describing: error?.localizedDescription))")
     }
-    
+
     func resultadoVerificacaoResposta(Resposta: RespostaRequest) {
         switch Resposta.result {
         case true:
@@ -169,8 +167,8 @@ extension DesafioViewController: DesafioViewModelDelegate{
             estadoDoBotaoProximo(estado: true)
         }
     }
-    
-    
+
+
     func apresentarQuestao(questao: Question){
         configuracoesDeRodadas()
         
